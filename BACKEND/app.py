@@ -4,6 +4,7 @@ from flask_cors import CORS
 from config import Config
 from extensions import db, jwt
 from routes.auth import auth_bp
+from routes.documents import documents_bp
 
 
 def register_jwt_handlers(jwt_manager):
@@ -49,6 +50,14 @@ def create_app():
     CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
 
     app.register_blueprint(auth_bp)
+    app.register_blueprint(documents_bp)
+
+    @app.errorhandler(413)
+    def request_entity_too_large(error):
+        return jsonify({
+            "success": False,
+            "message": "File is too large"
+        }), 413
 
     @app.route("/")
     def home():
@@ -62,7 +71,7 @@ def create_app():
 
 app = create_app()
 
-from models.user import User
+from models import User, Study, Document, DocumentVersion
 
 with app.app_context():
     db.create_all()
