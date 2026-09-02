@@ -34,6 +34,7 @@ class Document(db.Model):
     mime_type = db.Column(db.String(100), nullable=False)
     file_size = db.Column(db.BigInteger, nullable=False)
     description = db.Column(db.Text, nullable=True)
+    status = db.Column(db.String(50), default="uploaded", nullable=False)
     current_version = db.Column(db.Integer, default=1, nullable=False)
     is_deleted = db.Column(db.Boolean, default=False, nullable=False)
     created_at = db.Column(
@@ -63,11 +64,13 @@ class Document(db.Model):
         data = {
             "id": self.id,
             "study_id": self.study_id,
+            "document_name": self.original_filename,
             "original_filename": self.original_filename,
             "document_type": self.document_type,
             "mime_type": self.mime_type,
             "file_size": self.file_size,
             "description": self.description,
+            "status": self.status or "uploaded",
             "version": self.current_version,
             "uploaded_by": self.uploaded_by,
             "created_at": self.created_at.isoformat() if self.created_at else None,
@@ -76,6 +79,7 @@ class Document(db.Model):
         if include_versions:
             data["versions"] = [v.to_dict() for v in self.versions]
         return data
+
 
     def __repr__(self):
         return f"<Document {self.id}: {self.original_filename} (v{self.current_version})>"

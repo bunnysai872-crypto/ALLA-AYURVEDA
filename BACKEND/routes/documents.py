@@ -6,12 +6,14 @@ from extensions import db
 from models.user import User
 from models.study import Study
 from models.document import Document, DocumentVersion, VALID_DOCUMENT_TYPES
+from models.quality_check import QualityCheck
 from utils.permissions import can_user_access_study
 from utils.storage import (
     validate_file_upload,
     save_file,
     get_absolute_file_path,
 )
+from services.quality_gate_service import run_study_quality_check, extract_document_text
 
 documents_bp = Blueprint("documents", __name__, url_prefix="/api")
 
@@ -25,7 +27,7 @@ def _get_authenticated_user():
 
 
 # ==============================================================================
-# STUDY DOCUMENTS UPLOAD & LISTING
+# 1. STUDY DOCUMENTS UPLOAD & LISTING
 # ==============================================================================
 
 @documents_bp.route("/studies/<int:study_id>/documents", methods=["POST"])
@@ -75,6 +77,7 @@ def upload_study_document(study_id: int):
             mime_type=meta["mime_type"],
             file_size=meta["file_size"],
             description=description,
+            status="uploaded",
             current_version=1,
             is_deleted=False,
         )
@@ -123,7 +126,7 @@ def upload_study_document(study_id: int):
 @documents_bp.route("/studies/<int:study_id>/documents", methods=["GET"])
 @jwt_required()
 def list_study_documents(study_id: int):
-    """List non-deleted documents for a study with optional document_type filtering."""
+    """List non-deleted documents for a study with optional search, document_type and status filtering."""
     user = _get_authenticated_user()
     if not user or not user.is_active:
         return jsonify({"success": False, "message": "User account is inactive"}), 403
@@ -142,23 +145,75 @@ def list_study_documents(study_id: int):
     if doc_type:
         query = query.filter_by(document_type=doc_type.strip().lower())
 
-    documents = query.order_by(Document.created_at.desc()).all()
+    status = request.args.get("status")
+    if status:
+        query = query.filter_by(status=status.strip().lower())
+
+    search = request.args.get("search")
+    if search:
+        query = query.filter(Document.original_filename.ilike(f"%{search.strip()}%"))
+
+    # Sorting
+    sort = request.args.get("sort", "newest")
+    if sort == "oldest":
+        query = query.order_by(Document.created_at.asc())
+    elif sort == "name":
+        query = query.order_by(Document.original_filename.asc())
+    elif sort == "status":
+        query = query.order_by(Document.status.asc())
+    else:
+        query = query.order_by(Document.created_at.desc())
+
+    documents = query.all()
 
     return jsonify({
         "success": True,
         "study_id": study.id,
+        "study_title": study.title,
         "count": len(documents),
         "documents": [doc.to_dict() for doc in documents],
     }), 200
 
 
 # ==============================================================================
-# SINGLE DOCUMENT DOWNLOAD, UPDATE & DELETE
+# 2. DOCUMENT DETAILS, DOWNLOAD, UPDATE & DELETE (Study-scoped & Root-scoped)
 # ==============================================================================
 
+@documents_bp.route("/studies/<int:study_id>/documents/<int:document_id>", methods=["GET"])
+@documents_bp.route("/documents/<int:document_id>", methods=["GET"])
+@jwt_required()
+def get_document_details(document_id: int, study_id: int = None):
+    """Retrieve detailed metadata and version history for a single document."""
+    user = _get_authenticated_user()
+    if not user or not user.is_active:
+        return jsonify({"success": False, "message": "User account is inactive"}), 403
+
+    document = db.session.get(Document, document_id)
+    if not document or document.is_deleted:
+        return jsonify({"success": False, "message": "Document not found"}), 404
+
+    if study_id and document.study_id != study_id:
+        return jsonify({"success": False, "message": "Document does not belong to specified study"}), 404
+
+    study = db.session.get(Study, document.study_id)
+    if not study:
+        return jsonify({"success": False, "message": "Study not found"}), 404
+
+    is_allowed, err_msg = can_user_access_study(user, study, action="view")
+    if not is_allowed:
+        return jsonify({"success": False, "message": err_msg or "Permission denied"}), 403
+
+    doc_dict = document.to_dict(include_versions=True)
+    return jsonify({
+        "success": True,
+        "document": doc_dict,
+    }), 200
+
+
+@documents_bp.route("/studies/<int:study_id>/documents/<int:document_id>/download", methods=["GET"])
 @documents_bp.route("/documents/<int:document_id>/download", methods=["GET"])
 @jwt_required()
-def download_document(document_id: int):
+def download_document(document_id: int, study_id: int = None):
     """Download the latest version of an active document."""
     user = _get_authenticated_user()
     if not user or not user.is_active:
@@ -167,6 +222,9 @@ def download_document(document_id: int):
     document = db.session.get(Document, document_id)
     if not document or document.is_deleted:
         return jsonify({"success": False, "message": "Document not found"}), 404
+
+    if study_id and document.study_id != study_id:
+        return jsonify({"success": False, "message": "Document does not belong to specified study"}), 404
 
     study = db.session.get(Study, document.study_id)
     if not study:
@@ -188,10 +246,11 @@ def download_document(document_id: int):
     )
 
 
+@documents_bp.route("/studies/<int:study_id>/documents/<int:document_id>", methods=["PUT"])
 @documents_bp.route("/documents/<int:document_id>", methods=["PUT"])
 @jwt_required()
-def update_document_metadata(document_id: int):
-    """Update document metadata (e.g. document_type, description) without altering file versions."""
+def update_document_metadata(document_id: int, study_id: int = None):
+    """Update document metadata (document_type, description, status) without altering physical files."""
     user = _get_authenticated_user()
     if not user or not user.is_active:
         return jsonify({"success": False, "message": "User account is inactive"}), 403
@@ -199,6 +258,9 @@ def update_document_metadata(document_id: int):
     document = db.session.get(Document, document_id)
     if not document or document.is_deleted:
         return jsonify({"success": False, "message": "Document not found"}), 404
+
+    if study_id and document.study_id != study_id:
+        return jsonify({"success": False, "message": "Document does not belong to specified study"}), 404
 
     study = db.session.get(Study, document.study_id)
     if not study:
@@ -224,6 +286,9 @@ def update_document_metadata(document_id: int):
     if "description" in data:
         document.description = str(data["description"]).strip()
 
+    if "status" in data:
+        document.status = str(data["status"]).strip().lower()
+
     document.updated_at = datetime.utcnow()
     db.session.commit()
 
@@ -234,10 +299,11 @@ def update_document_metadata(document_id: int):
     }), 200
 
 
+@documents_bp.route("/studies/<int:study_id>/documents/<int:document_id>", methods=["DELETE"])
 @documents_bp.route("/documents/<int:document_id>", methods=["DELETE"])
 @jwt_required()
-def delete_document(document_id: int):
-    """Soft delete a document and preserve version history."""
+def delete_document(document_id: int, study_id: int = None):
+    """Soft delete a document, hiding it from listings while preserving version history."""
     user = _get_authenticated_user()
     if not user or not user.is_active:
         return jsonify({"success": False, "message": "User account is inactive"}), 403
@@ -245,6 +311,9 @@ def delete_document(document_id: int):
     document = db.session.get(Document, document_id)
     if not document or document.is_deleted:
         return jsonify({"success": False, "message": "Document not found"}), 404
+
+    if study_id and document.study_id != study_id:
+        return jsonify({"success": False, "message": "Document does not belong to specified study"}), 404
 
     study = db.session.get(Study, document.study_id)
     if not study:
@@ -265,13 +334,14 @@ def delete_document(document_id: int):
 
 
 # ==============================================================================
-# DOCUMENT VERSIONING
+# 3. DOCUMENT VERSIONING
 # ==============================================================================
 
+@documents_bp.route("/studies/<int:study_id>/documents/<int:document_id>/versions", methods=["POST"])
 @documents_bp.route("/documents/<int:document_id>/versions", methods=["POST"])
 @jwt_required()
-def upload_document_version(document_id: int):
-    """Upload a new version of an existing document without overwriting prior versions."""
+def upload_document_version(document_id: int, study_id: int = None):
+    """Upload a new version of an existing document without destroying prior versions."""
     user = _get_authenticated_user()
     if not user or not user.is_active:
         return jsonify({"success": False, "message": "User account is inactive"}), 403
@@ -279,6 +349,9 @@ def upload_document_version(document_id: int):
     document = db.session.get(Document, document_id)
     if not document or document.is_deleted:
         return jsonify({"success": False, "message": "Document not found"}), 404
+
+    if study_id and document.study_id != study_id:
+        return jsonify({"success": False, "message": "Document does not belong to specified study"}), 404
 
     study = db.session.get(Study, document.study_id)
     if not study:
@@ -328,6 +401,7 @@ def upload_document_version(document_id: int):
         document.original_filename = orig_name
         document.mime_type = mime_type
         document.file_size = file_size
+        document.status = "uploaded"
         document.updated_at = datetime.utcnow()
 
         db.session.commit()
@@ -347,9 +421,10 @@ def upload_document_version(document_id: int):
         }), 500
 
 
+@documents_bp.route("/studies/<int:study_id>/documents/<int:document_id>/versions", methods=["GET"])
 @documents_bp.route("/documents/<int:document_id>/versions", methods=["GET"])
 @jwt_required()
-def list_document_versions(document_id: int):
+def list_document_versions(document_id: int, study_id: int = None):
     """Retrieve full version history for a document."""
     user = _get_authenticated_user()
     if not user or not user.is_active:
@@ -358,6 +433,9 @@ def list_document_versions(document_id: int):
     document = db.session.get(Document, document_id)
     if not document or document.is_deleted:
         return jsonify({"success": False, "message": "Document not found"}), 404
+
+    if study_id and document.study_id != study_id:
+        return jsonify({"success": False, "message": "Document does not belong to specified study"}), 404
 
     study = db.session.get(Study, document.study_id)
     if not study:
@@ -383,11 +461,15 @@ def list_document_versions(document_id: int):
 
 
 @documents_bp.route(
+    "/studies/<int:study_id>/documents/<int:document_id>/versions/<int:version_number>/download",
+    methods=["GET"],
+)
+@documents_bp.route(
     "/documents/<int:document_id>/versions/<int:version_number>/download",
     methods=["GET"],
 )
 @jwt_required()
-def download_document_version(document_id: int, version_number: int):
+def download_document_version(document_id: int, version_number: int, study_id: int = None):
     """Download a specific historical version of a document."""
     user = _get_authenticated_user()
     if not user or not user.is_active:
@@ -396,6 +478,9 @@ def download_document_version(document_id: int, version_number: int):
     document = db.session.get(Document, document_id)
     if not document or document.is_deleted:
         return jsonify({"success": False, "message": "Document not found"}), 404
+
+    if study_id and document.study_id != study_id:
+        return jsonify({"success": False, "message": "Document does not belong to specified study"}), 404
 
     study = db.session.get(Study, document.study_id)
     if not study:
@@ -429,8 +514,138 @@ def download_document_version(document_id: int, version_number: int):
 
 
 # ==============================================================================
-# AI QUALITY GATE DATA PREPARATION
+# 4. AI QUALITY GATE ENDPOINTS
 # ==============================================================================
+
+@documents_bp.route("/studies/<int:study_id>/quality-check", methods=["POST"])
+@jwt_required()
+def trigger_study_quality_check(study_id: int):
+    """
+    Trigger the AI Quality Gate evaluation for a study.
+    Runs Completeness, Consistency, Cross-Document checks, and generates Risk Flags & Recommendations.
+    """
+    user = _get_authenticated_user()
+    if not user or not user.is_active:
+        return jsonify({"success": False, "message": "User account is inactive"}), 403
+
+    study = db.session.get(Study, study_id)
+    if not study:
+        return jsonify({"success": False, "message": "Study not found"}), 404
+
+    is_allowed, err_msg = can_user_access_study(user, study, action="quality_data")
+    if not is_allowed:
+        return jsonify({"success": False, "message": err_msg or "Permission denied"}), 403
+
+    qc = run_study_quality_check(study, user.id)
+
+    return jsonify({
+        "success": True,
+        "message": "AI Quality Gate check executed successfully",
+        "quality_check": qc.to_dict(),
+    }), 200
+
+
+@documents_bp.route("/studies/<int:study_id>/quality-check", methods=["GET"])
+@jwt_required()
+def get_latest_study_quality_check(study_id: int):
+    """Retrieve the latest AI Quality Gate check result for a study."""
+    user = _get_authenticated_user()
+    if not user or not user.is_active:
+        return jsonify({"success": False, "message": "User account is inactive"}), 403
+
+    study = db.session.get(Study, study_id)
+    if not study:
+        return jsonify({"success": False, "message": "Study not found"}), 404
+
+    is_allowed, err_msg = can_user_access_study(user, study, action="quality_data")
+    if not is_allowed:
+        return jsonify({"success": False, "message": err_msg or "Permission denied"}), 403
+
+    latest_qc = (
+        QualityCheck.query.filter_by(study_id=study.id)
+        .order_by(QualityCheck.created_at.desc())
+        .first()
+    )
+
+    if not latest_qc:
+        return jsonify({
+            "success": True,
+            "status": "not_checked",
+            "message": "Quality check has not been run yet for this study",
+            "quality_check": {
+                "status": "not_checked",
+                "score": None,
+                "summary": "Quality check has not been run yet.",
+                "completeness": {"status": "not_checked", "issues": []},
+                "consistency": {"status": "not_checked", "issues": []},
+                "cross_document": {"status": "not_checked", "issues": []},
+                "risk_flags": [],
+                "recommendations": [],
+                "created_at": None,
+            },
+        }), 200
+
+    return jsonify({
+        "success": True,
+        "quality_check": latest_qc.to_dict(),
+    }), 200
+
+
+@documents_bp.route("/studies/<int:study_id>/documents/<int:document_id>/quality-check", methods=["POST"])
+@jwt_required()
+def trigger_document_quality_check(study_id: int, document_id: int):
+    """Trigger a document-specific quality verification check."""
+    user = _get_authenticated_user()
+    if not user or not user.is_active:
+        return jsonify({"success": False, "message": "User account is inactive"}), 403
+
+    study = db.session.get(Study, study_id)
+    if not study:
+        return jsonify({"success": False, "message": "Study not found"}), 404
+
+    document = db.session.get(Document, document_id)
+    if not document or document.is_deleted or document.study_id != study.id:
+        return jsonify({"success": False, "message": "Document not found"}), 404
+
+    is_allowed, err_msg = can_user_access_study(user, study, action="quality_data")
+    if not is_allowed:
+        return jsonify({"success": False, "message": err_msg or "Permission denied"}), 403
+
+    txt, success, note = extract_document_text(document)
+    has_content = bool(txt and len(txt) > 20)
+
+    issues = []
+    if not success:
+        issues.append({
+            "severity": "INFO",
+            "message": f"Text extraction note: {note}",
+            "recommendation": "Review document manually if binary format."
+        })
+    elif not has_content:
+        issues.append({
+            "severity": "WARNING",
+            "message": "Document content appears very brief or empty.",
+            "recommendation": "Verify complete document upload."
+        })
+
+    status = "quality_check_completed" if not issues else "issues_found"
+    document.status = status
+    db.session.commit()
+
+    return jsonify({
+        "success": True,
+        "message": "Document quality verification completed",
+        "document_id": document.id,
+        "status": status,
+        "text_extraction": {
+            "supported": True,
+            "success": success,
+            "note": note,
+            "content_length": len(txt),
+        },
+        "issues": issues,
+    }), 200
+
 
 @documents_bp.route("/studies/<int:study_id>/documents/quality-data", methods=["GET"])
 @jwt_required()
@@ -459,7 +674,6 @@ def get_study_documents_quality_data(study_id: int):
 
     docs_data = []
     for doc in documents:
-        # Determine extraction readiness based on file format
         ext = (doc.original_filename.rsplit(".", 1)[-1].lower()) if "." in doc.original_filename else ""
         extraction_type = "plain_text" if ext == "txt" else ("pdf" if ext == "pdf" else "word_document")
 
@@ -478,11 +692,13 @@ def get_study_documents_quality_data(study_id: int):
 
         docs_data.append({
             "id": doc.id,
+            "document_name": doc.original_filename,
             "document_type": doc.document_type,
             "original_filename": doc.original_filename,
             "current_version": doc.current_version,
             "mime_type": doc.mime_type,
             "file_size": doc.file_size,
+            "status": doc.status or "uploaded",
             "description": doc.description,
             "uploaded_by": doc.uploaded_by,
             "created_at": doc.created_at.isoformat() if doc.created_at else None,
@@ -496,7 +712,6 @@ def get_study_documents_quality_data(study_id: int):
             "version_history": versions_data,
         })
 
-    # High-level study quality readiness flags
     has_protocol = any(d.document_type == "protocol" for d in documents)
     has_consent = any(d.document_type == "informed_consent" for d in documents)
     has_crf = any(d.document_type == "case_report_form" for d in documents)
@@ -517,4 +732,3 @@ def get_study_documents_quality_data(study_id: int):
             "is_ready_for_pipeline": has_protocol and (len(docs_data) > 0),
         },
     }), 200
-
