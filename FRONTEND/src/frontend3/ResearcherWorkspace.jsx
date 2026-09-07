@@ -15,6 +15,7 @@ import CreateStudyPage from "./pages/CreateStudyPage";
 import StudyDetailsPage from "./pages/StudyDetailsPage";
 import EditStudyPage from "./pages/EditStudyPage";
 import ProtocolBuilderPage from "./pages/ProtocolBuilderPage";
+import DocumentManagementPage from "../frontend4/pages/DocumentManagementPage";
 import ComingSoonPage from "./pages/ComingSoonPage";
 
 /**
@@ -188,6 +189,14 @@ export function ResearcherWorkspace() {
         );
 
       case WORKSPACE_TABS.DOCUMENTS:
+        return (
+          <DocumentManagementPage
+            studyIdOverride={activeStudyId}
+            activeStudy={activeStudy}
+            onSelectTab={handleSelectTab}
+          />
+        );
+
       case WORKSPACE_TABS.AI_QUALITY_GATE:
       case WORKSPACE_TABS.NOTIFICATIONS:
       case WORKSPACE_TABS.PROFILE:

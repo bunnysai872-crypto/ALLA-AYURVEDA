@@ -4,8 +4,13 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 
 from extensions import db
 from models.user import User
-from models.study import Study
-from models.document import Document, DocumentVersion, VALID_DOCUMENT_TYPES
+from models.document import (
+    Document,
+    DocumentVersion,
+    VALID_DOCUMENT_TYPES,
+    DOCUMENT_CATEGORIES,
+    VALID_DOCUMENT_STATUSES,
+)
 from models.quality_check import QualityCheck
 from utils.permissions import can_user_access_study
 from utils.storage import (
@@ -57,7 +62,7 @@ def upload_study_document(study_id: int):
     if not is_valid:
         return jsonify({"success": False, "message": err}), 400
 
-    document_type = request.form.get("document_type", "other").strip().lower()
+    document_type = request.form.get("document_type", "other_supporting_documents").strip().lower()
     if document_type not in VALID_DOCUMENT_TYPES:
         return jsonify({
             "success": False,
@@ -77,7 +82,7 @@ def upload_study_document(study_id: int):
             mime_type=meta["mime_type"],
             file_size=meta["file_size"],
             description=description,
-            status="uploaded",
+            status="UPLOADED",
             current_version=1,
             is_deleted=False,
         )
@@ -147,7 +152,8 @@ def list_study_documents(study_id: int):
 
     status = request.args.get("status")
     if status:
-        query = query.filter_by(status=status.strip().lower())
+        st_upper = status.strip().upper()
+        query = query.filter((Document.status == st_upper) | (Document.status == status.strip().lower()))
 
     search = request.args.get("search")
     if search:
@@ -166,12 +172,50 @@ def list_study_documents(study_id: int):
 
     documents = query.all()
 
+    # Calculate required categories checklist for AI Quality Gate & Document Verification readiness
+    category_check = {
+        "study_protocol": {"label": "Study Protocol", "required": True, "present": False, "documents": []},
+        "patient_information_sheet": {"label": "Patient Information Sheet", "required": True, "present": False, "documents": []},
+        "informed_consent_form": {"label": "Informed Consent Form", "required": True, "present": False, "documents": []},
+        "investigator_brochure": {"label": "Investigator Brochure", "required": True, "present": False, "documents": []},
+        "case_report_form": {"label": "Case Report Form", "required": True, "present": False, "documents": []},
+        "statistical_analysis_plan": {"label": "Statistical Analysis Plan", "required": True, "present": False, "documents": []},
+        "other_supporting_documents": {"label": "Other Supporting Documents", "required": False, "present": False, "documents": []},
+    }
+
+    for doc in documents:
+        dt = doc.document_type
+        if dt in {"study_protocol", "protocol"}:
+            canonical = "study_protocol"
+        elif dt in {"informed_consent_form", "informed_consent"}:
+            canonical = "informed_consent_form"
+        elif dt in {"other_supporting_documents", "other", "study_plan"}:
+            canonical = "other_supporting_documents"
+        elif dt in category_check:
+            canonical = dt
+        else:
+            canonical = "other_supporting_documents"
+
+        category_check[canonical]["present"] = True
+        category_check[canonical]["documents"].append({
+            "id": doc.id,
+            "filename": doc.original_filename,
+            "version": doc.current_version,
+            "status": (doc.status.upper() if doc.status else "UPLOADED"),
+        })
+
     return jsonify({
         "success": True,
         "study_id": study.id,
         "study_title": study.title,
+        "study_status": study.status,
+        "protocol_number": study.protocol_number,
+        "principal_investigator_name": study.principal_investigator.full_name if study.principal_investigator else None,
+        "principal_investigator_id": study.principal_investigator_id,
         "count": len(documents),
         "documents": [doc.to_dict() for doc in documents],
+        "categories": DOCUMENT_CATEGORIES,
+        "required_checklist": category_check,
     }), 200
 
 
@@ -287,7 +331,13 @@ def update_document_metadata(document_id: int, study_id: int = None):
         document.description = str(data["description"]).strip()
 
     if "status" in data:
-        document.status = str(data["status"]).strip().lower()
+        status_candidate = str(data["status"]).strip().upper()
+        if status_candidate not in VALID_DOCUMENT_STATUSES:
+            return jsonify({
+                "success": False,
+                "message": f"Invalid status '{status_candidate}'. Allowed statuses: {', '.join(sorted(VALID_DOCUMENT_STATUSES))}"
+            }), 400
+        document.status = status_candidate
 
     document.updated_at = datetime.utcnow()
     db.session.commit()
@@ -401,7 +451,7 @@ def upload_document_version(document_id: int, study_id: int = None):
         document.original_filename = orig_name
         document.mime_type = mime_type
         document.file_size = file_size
-        document.status = "uploaded"
+        document.status = "UPLOADED"
         document.updated_at = datetime.utcnow()
 
         db.session.commit()
@@ -712,9 +762,14 @@ def get_study_documents_quality_data(study_id: int):
             "version_history": versions_data,
         })
 
-    has_protocol = any(d.document_type == "protocol" for d in documents)
-    has_consent = any(d.document_type == "informed_consent" for d in documents)
+    has_protocol = any(d.document_type in {"study_protocol", "protocol"} for d in documents)
+    has_patient_info = any(d.document_type == "patient_information_sheet" for d in documents)
+    has_consent = any(d.document_type in {"informed_consent_form", "informed_consent"} for d in documents)
+    has_brochure = any(d.document_type == "investigator_brochure" for d in documents)
     has_crf = any(d.document_type == "case_report_form" for d in documents)
+    has_sap = any(d.document_type == "statistical_analysis_plan" for d in documents)
+
+    all_required_present = all([has_protocol, has_patient_info, has_consent, has_brochure, has_crf, has_sap])
 
     return jsonify({
         "success": True,
@@ -726,8 +781,12 @@ def get_study_documents_quality_data(study_id: int):
         "documents": docs_data,
         "quality_gate_readiness": {
             "has_protocol": has_protocol,
+            "has_patient_information_sheet": has_patient_info,
             "has_informed_consent": has_consent,
+            "has_investigator_brochure": has_brochure,
             "has_case_report_form": has_crf,
+            "has_statistical_analysis_plan": has_sap,
+            "all_required_present": all_required_present,
             "total_documents": len(docs_data),
             "is_ready_for_pipeline": has_protocol and (len(docs_data) > 0),
         },

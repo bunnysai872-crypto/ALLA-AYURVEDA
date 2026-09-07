@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { DOCUMENT_TYPE_LABELS, formatBytes } from "../utils/documentHelpers";
+import { CANONICAL_DOCUMENT_CATEGORIES, DOCUMENT_TYPE_LABELS, formatBytes } from "../utils/documentHelpers";
 
 const ALLOWED_EXTENSIONS = ["pdf", "doc", "docx", "txt", "xls", "xlsx", "csv"];
 const MAX_FILE_SIZE_BYTES = 16 * 1024 * 1024; // 16 MB
@@ -15,7 +15,7 @@ export default function DocumentUpload({
 }) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [documentType, setDocumentType] = useState(
-    targetDocument?.document_type || "protocol"
+    targetDocument?.document_type || "study_protocol"
   );
   const [description, setDescription] = useState("");
   const [changeSummary, setChangeSummary] = useState("");
@@ -75,8 +75,18 @@ export default function DocumentUpload({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!studyId) {
+      setValidationError("Missing Study ID. Please select or load a study first.");
+      return;
+    }
+
     if (!selectedFile) {
       setValidationError("Please select a file to upload.");
+      return;
+    }
+
+    if (!isVersionUpload && !documentType) {
+      setValidationError("Please select a document category.");
       return;
     }
 
@@ -184,7 +194,7 @@ export default function DocumentUpload({
           {/* DOCUMENT TYPE (for new uploads) */}
           {!isVersionUpload && (
             <div className="f4-form-group">
-              <label htmlFor="f4_doc_type">Document Type *</label>
+              <label htmlFor="f4_doc_type">Document Category *</label>
               <select
                 id="f4_doc_type"
                 className="f4-input"
@@ -192,9 +202,9 @@ export default function DocumentUpload({
                 onChange={(e) => setDocumentType(e.target.value)}
                 required
               >
-                {Object.entries(DOCUMENT_TYPE_LABELS).map(([key, label]) => (
-                  <option key={key} value={key}>
-                    {label}
+                {CANONICAL_DOCUMENT_CATEGORIES.map((cat) => (
+                  <option key={cat.key} value={cat.key}>
+                    {cat.label} {cat.required ? "(Required Category)" : "(Supporting)"}
                   </option>
                 ))}
               </select>

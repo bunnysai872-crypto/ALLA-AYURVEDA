@@ -49,11 +49,12 @@ export default function DocumentTable({
           <thead>
             <tr>
               <th>Document Name</th>
-              <th>Type</th>
+              <th>Category</th>
               <th>Version</th>
               <th>Status</th>
+              <th>Uploaded By</th>
+              <th>Upload Date</th>
               <th>Size</th>
-              <th>Uploaded Date</th>
               <th className="f4-th-actions">Actions</th>
             </tr>
           </thead>
@@ -92,10 +93,15 @@ export default function DocumentTable({
                     <DocumentStatusBadge status={doc.status} />
                   </td>
                   <td>
-                    <span className="f4-size-text">{formatBytes(doc.file_size)}</span>
+                    <span className="f4-uploader-text" style={{ fontSize: "12px", color: "#475569" }}>
+                      {doc.uploaded_by_name || `User #${doc.uploaded_by}`}
+                    </span>
                   </td>
                   <td>
                     <span className="f4-date-text">{formatDate(doc.created_at)}</span>
+                  </td>
+                  <td>
+                    <span className="f4-size-text">{formatBytes(doc.file_size)}</span>
                   </td>
                   <td className="f4-td-actions">
                     <div className="f4-row-actions">

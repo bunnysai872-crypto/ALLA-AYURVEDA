@@ -369,6 +369,17 @@ export function ProtocolBuilderPage({ activeStudy, onSelectTab }) {
               Study Details
             </button>
           )}
+          {identifier && (
+            <button
+              type="button"
+              className="f3-btn f3-btn-primary"
+              onClick={() => onSelectTab(WORKSPACE_TABS.DOCUMENTS, selectedStudy)}
+              title="Manage and upload documents for this study"
+            >
+              <span>📁 Documents</span>
+              <span className="f3-btn-arrow">→</span>
+            </button>
+          )}
         </div>
       </div>
 

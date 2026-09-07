@@ -45,10 +45,12 @@ class Study(db.Model):
         """Serialize Study model to dictionary."""
         return {
             "id": self.id,
+            "study_id": self.id,
             "title": self.title,
             "protocol_number": self.protocol_number,
             "description": self.description,
             "principal_investigator_id": self.principal_investigator_id,
+            "principal_investigator_name": self.principal_investigator.full_name if self.principal_investigator else None,
             "status": self.status,
             "created_at": self.created_at.isoformat() if self.created_at else None,
             "updated_at": self.updated_at.isoformat() if self.updated_at else None,

@@ -5,6 +5,7 @@ from config import Config
 from extensions import db, jwt
 from routes.auth import auth_bp
 from routes.documents import documents_bp
+from routes.studies import studies_bp
 
 
 def register_jwt_handlers(jwt_manager):
@@ -51,6 +52,7 @@ def create_app():
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(documents_bp)
+    app.register_blueprint(studies_bp)
 
     @app.errorhandler(413)
     def request_entity_too_large(error):
@@ -71,7 +73,7 @@ def create_app():
 
 app = create_app()
 
-from models import User, Study, Document, DocumentVersion, QualityCheck
+from models import User, Study, Protocol, Document, DocumentVersion, QualityCheck
 
 with app.app_context():
     db.create_all()

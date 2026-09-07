@@ -3,20 +3,42 @@
  */
 
 export const DOCUMENT_TYPE_LABELS = {
+  study_protocol: "Study Protocol",
   protocol: "Study Protocol",
+  patient_information_sheet: "Patient Information Sheet",
+  informed_consent_form: "Informed Consent Form",
   informed_consent: "Informed Consent Form",
-  case_report_form: "Case Report Form (CRF)",
   investigator_brochure: "Investigator Brochure",
-  study_plan: "Study Plan",
+  case_report_form: "Case Report Form",
   statistical_analysis_plan: "Statistical Analysis Plan",
-  investigator_cv: "Investigator CV",
-  ethics_document: "Ethics Document",
-  supporting_document: "Supporting Document",
-  other: "Other Study Document",
+  other_supporting_documents: "Other Supporting Documents",
+  other: "Other Supporting Documents",
+  study_plan: "Study Plan",
 };
 
+export const CANONICAL_DOCUMENT_CATEGORIES = [
+  { key: "study_protocol", label: "Study Protocol", required: true },
+  { key: "patient_information_sheet", label: "Patient Information Sheet", required: true },
+  { key: "informed_consent_form", label: "Informed Consent Form", required: true },
+  { key: "investigator_brochure", label: "Investigator Brochure", required: true },
+  { key: "case_report_form", label: "Case Report Form", required: true },
+  { key: "statistical_analysis_plan", label: "Statistical Analysis Plan", required: true },
+  { key: "other_supporting_documents", label: "Other Supporting Documents", required: false },
+];
+
 export const DOCUMENT_STATUS_META = {
+  UPLOADED: { label: "Uploaded", color: "#2563eb", bg: "#eff6ff" },
+  UNDER_REVIEW: { label: "Under Review", color: "#d97706", bg: "#fffbeb" },
+  VERIFIED: { label: "Verified", color: "#16a34a", bg: "#f0fdf4" },
+  REJECTED: { label: "Rejected", color: "#dc2626", bg: "#fef2f2" },
+  REPLACEMENT_REQUIRED: { label: "Replacement Required", color: "#ea580c", bg: "#fff7ed" },
+
+  // Lowercase compatibility
   uploaded: { label: "Uploaded", color: "#2563eb", bg: "#eff6ff" },
+  under_review: { label: "Under Review", color: "#d97706", bg: "#fffbeb" },
+  verified: { label: "Verified", color: "#16a34a", bg: "#f0fdf4" },
+  rejected: { label: "Rejected", color: "#dc2626", bg: "#fef2f2" },
+  replacement_required: { label: "Replacement Required", color: "#ea580c", bg: "#fff7ed" },
   draft: { label: "Draft", color: "#64748b", bg: "#f1f5f9" },
   processing: { label: "Processing", color: "#d97706", bg: "#fef3c7" },
   quality_check_pending: { label: "Quality Check Pending", color: "#d97706", bg: "#fffbeb" },

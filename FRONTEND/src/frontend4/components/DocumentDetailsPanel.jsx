@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  CANONICAL_DOCUMENT_CATEGORIES,
   DOCUMENT_TYPE_LABELS,
   formatBytes,
   formatDate,
@@ -141,6 +142,10 @@ export default function DocumentDetailsPanel({
                 <span className="f4-meta-val">{document.mime_type}</span>
               </div>
               <div className="f4-meta-item">
+                <span className="f4-meta-label">Uploaded By</span>
+                <span className="f4-meta-val">{document.uploaded_by_name || `User #${document.uploaded_by}`}</span>
+              </div>
+              <div className="f4-meta-item">
                 <span className="f4-meta-label">Uploaded On</span>
                 <span className="f4-meta-val">{formatDate(document.created_at)}</span>
               </div>
@@ -161,7 +166,7 @@ export default function DocumentDetailsPanel({
                   className="f4-btn-text"
                   onClick={() => {
                     setEditDescription(document.description || "");
-                    setEditType(document.document_type || "other");
+                    setEditType(document.document_type || "study_protocol");
                     setIsEditing(true);
                   }}
                 >
@@ -173,15 +178,15 @@ export default function DocumentDetailsPanel({
             {isEditing ? (
               <div className="f4-inline-edit-box">
                 <div className="f4-form-group">
-                  <label>Document Type</label>
+                  <label>Document Category</label>
                   <select
                     className="f4-input"
                     value={editType}
                     onChange={(e) => setEditType(e.target.value)}
                   >
-                    {Object.entries(DOCUMENT_TYPE_LABELS).map(([key, label]) => (
-                      <option key={key} value={key}>
-                        {label}
+                    {CANONICAL_DOCUMENT_CATEGORIES.map((cat) => (
+                      <option key={cat.key} value={cat.key}>
+                        {cat.label}
                       </option>
                     ))}
                   </select>

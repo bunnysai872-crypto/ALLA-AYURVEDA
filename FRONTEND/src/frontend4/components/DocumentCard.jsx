@@ -36,6 +36,8 @@ export default function DocumentCard({
       <div className="f4-card-meta-row">
         <span>Version: <strong>v{document.version}</strong></span>
         <span>•</span>
+        <span>By: <strong>{document.uploaded_by_name || `User #${document.uploaded_by}`}</strong></span>
+        <span>•</span>
         <span>Size: {formatBytes(document.file_size)}</span>
         <span>•</span>
         <span>{formatDate(document.created_at)}</span>

@@ -3,13 +3,36 @@ from datetime import datetime
 from extensions import db
 
 VALID_DOCUMENT_TYPES = {
+    "study_protocol",
     "protocol",
+    "patient_information_sheet",
+    "informed_consent_form",
     "informed_consent",
-    "case_report_form",
     "investigator_brochure",
-    "study_plan",
+    "case_report_form",
     "statistical_analysis_plan",
+    "other_supporting_documents",
     "other",
+    "study_plan",
+}
+
+# The canonical 7 document categories specified for ALLA Ayurveda
+DOCUMENT_CATEGORIES = [
+    {"key": "study_protocol", "label": "Study Protocol", "required": True},
+    {"key": "patient_information_sheet", "label": "Patient Information Sheet", "required": True},
+    {"key": "informed_consent_form", "label": "Informed Consent Form", "required": True},
+    {"key": "investigator_brochure", "label": "Investigator Brochure", "required": True},
+    {"key": "case_report_form", "label": "Case Report Form", "required": True},
+    {"key": "statistical_analysis_plan", "label": "Statistical Analysis Plan", "required": True},
+    {"key": "other_supporting_documents", "label": "Other Supporting Documents", "required": False},
+]
+
+VALID_DOCUMENT_STATUSES = {
+    "UPLOADED",
+    "UNDER_REVIEW",
+    "VERIFIED",
+    "REJECTED",
+    "REPLACEMENT_REQUIRED",
 }
 
 
@@ -30,11 +53,11 @@ class Document(db.Model):
     )
     original_filename = db.Column(db.String(255), nullable=False)
     storage_path = db.Column(db.String(500), nullable=False)
-    document_type = db.Column(db.String(100), default="other", nullable=False)
+    document_type = db.Column(db.String(100), default="other_supporting_documents", nullable=False)
     mime_type = db.Column(db.String(100), nullable=False)
     file_size = db.Column(db.BigInteger, nullable=False)
     description = db.Column(db.Text, nullable=True)
-    status = db.Column(db.String(50), default="uploaded", nullable=False)
+    status = db.Column(db.String(50), default="UPLOADED", nullable=False)
     current_version = db.Column(db.Integer, default=1, nullable=False)
     is_deleted = db.Column(db.Boolean, default=False, nullable=False)
     created_at = db.Column(
@@ -70,9 +93,10 @@ class Document(db.Model):
             "mime_type": self.mime_type,
             "file_size": self.file_size,
             "description": self.description,
-            "status": self.status or "uploaded",
+            "status": (self.status.upper() if self.status else "UPLOADED"),
             "version": self.current_version,
             "uploaded_by": self.uploaded_by,
+            "uploaded_by_name": self.uploader.full_name if self.uploader else None,
             "created_at": self.created_at.isoformat() if self.created_at else None,
             "updated_at": self.updated_at.isoformat() if self.updated_at else None,
         }
@@ -125,6 +149,7 @@ class DocumentVersion(db.Model):
             "mime_type": self.mime_type,
             "file_size": self.file_size,
             "uploaded_by": self.uploaded_by,
+            "uploaded_by_name": self.uploader.full_name if self.uploader else None,
             "change_summary": self.change_summary,
             "created_at": self.created_at.isoformat() if self.created_at else None,
         }

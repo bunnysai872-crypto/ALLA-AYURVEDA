@@ -49,7 +49,7 @@ export const NAVIGATION_ITEMS = [
     id: WORKSPACE_TABS.DOCUMENTS,
     label: "Documents",
     icon: "Files",
-    isComingSoon: true,
+    isComingSoon: false,
     description: "Centralized document repository with versioning and audit trails.",
   },
   {
