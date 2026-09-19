@@ -1,0 +1,20 @@
+{
+  "decision_id": "dec_27_23_1789716716",
+  "study_id": "ALLA-E2E-2026-001",
+  "study_db_id": 27,
+  "study_title": "Clinical Evaluation of Haridra Extract in Metabolic Health",
+  "decision": "approved",
+  "decision_label": "Approved",
+  "remarks": "Ethical committee approves study without amendment.",
+  "comments": "Ethical committee approves study without amendment.",
+  "conditions": "Quarterly adverse event reporting mandatory.",
+  "decision_date": "2026-09-18T13:01:56.856827Z",
+  "decided_by": {
+    "id": 23,
+    "full_name": "Dr. E2E Member",
+    "email": "e2e_mem@test.com",
+    "role": "iec_member"
+  },
+  "previous_status": "iec_recommendation_submitted",
+  "study_status": "approved"
+}

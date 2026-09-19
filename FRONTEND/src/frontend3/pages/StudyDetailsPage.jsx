@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { WORKSPACE_TABS } from "../utils/constants";
 import { formatDateTime } from "../utils/formatters";
 import researcherApi from "../services/researcherApi";
+import regulatoryApi from "../services/regulatoryApi";
 import StudyStatusBadge from "../components/StudyStatusBadge";
 import DeleteConfirmModal from "../components/DeleteConfirmModal";
 
@@ -21,12 +22,13 @@ function DisplayValue({ value, isMono = false }) {
  * 
  * Comprehensive study view loading data via GET /api/studies/<identifier>.
  * Displays all metadata with "Not provided" fallbacks and supports Edit, Delete,
- * and Protocol Builder actions.
+ * Protocol Builder, and Participant Management actions.
  */
 export function StudyDetailsPage({ studyIdentifier, initialStudy, onSelectTab }) {
   const identifier = studyIdentifier ?? initialStudy?.id ?? initialStudy?.study_id;
 
   const [study, setStudy] = useState(initialStudy || null);
+  const [complianceData, setComplianceData] = useState(null);
   const [loading, setLoading] = useState(!initialStudy && Boolean(identifier));
   const [error, setError] = useState(null);
   const [fetchTrigger, setFetchTrigger] = useState(0);
@@ -52,6 +54,16 @@ export function StudyDetailsPage({ studyIdentifier, initialStudy, onSelectTab })
           } else {
             setError(`Study #${identifier} was not found on the server.`);
           }
+        }
+
+        // Fetch IEC Decision and Regulatory compliance data if study has progressed
+        try {
+          const comp = await regulatoryApi.getRegulatoryDossier(identifier);
+          if (isCurrent && comp?.success) {
+            setComplianceData(comp.data);
+          }
+        } catch {
+          // Non-blocking if study is still in pre-approval stages
         }
       } catch (err) {
         if (isCurrent) {
@@ -209,6 +221,23 @@ export function StudyDetailsPage({ studyIdentifier, initialStudy, onSelectTab })
             <span className="f3-btn-arrow">→</span>
           </button>
 
+          {sStatus === "activated" && (
+            <button
+              type="button"
+              className="f3-btn f3-btn-primary"
+              style={{
+                background: "linear-gradient(135deg, #10b981, #d4af37)",
+                color: "#0a1813",
+                fontWeight: 700,
+                border: "none",
+              }}
+              onClick={() => onSelectTab(WORKSPACE_TABS.PARTICIPANTS, study)}
+            >
+              <span>Manage Participants & Consent</span>
+              <span className="f3-btn-arrow">→</span>
+            </button>
+          )}
+
           <button
             type="button"
             className="f3-btn f3-btn-ghost f3-btn-danger-ghost"
@@ -225,6 +254,104 @@ export function StudyDetailsPage({ studyIdentifier, initialStudy, onSelectTab })
 
       {/* Main Details Card */}
       <div className="f3-detail-card">
+        {/* Research Lifecycle Timeline */}
+        <div style={{ padding: "20px 24px", background: "rgba(10, 18, 15, 0.7)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+          <span style={{ fontSize: "0.76rem", color: "#d4af37", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>
+            CLINICAL RESEARCH LIFECYCLE
+          </span>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "10px", marginTop: "12px" }}>
+            {[
+              { num: "01", name: "Protocol Draft", active: true },
+              { num: "02", name: "Doc Verification", active: ["submitted", "under_iec_review", "iec_recommendation_submitted", "approved", "activated"].includes(sStatus) },
+              { num: "03", name: "IEC Review", active: ["under_iec_review", "iec_recommendation_submitted", "approved", "activated"].includes(sStatus) },
+              { num: "04", name: "IEC Decision", active: ["approved", "activated", "modification_required", "not_approved"].includes(sStatus) },
+              { num: "05", name: "Regulatory & CTRI", active: ["approved", "activated"].includes(sStatus) },
+              { num: "06", name: "Activated Trial", active: sStatus === "activated" },
+            ].map((st, i) => (
+              <div
+                key={i}
+                style={{
+                  background: st.active ? "rgba(16, 185, 129, 0.15)" : "rgba(255, 255, 255, 0.03)",
+                  border: `1px solid ${st.active ? "rgba(16, 185, 129, 0.35)" : "rgba(255, 255, 255, 0.08)"}`,
+                  borderRadius: "8px",
+                  padding: "8px 10px",
+                }}
+              >
+                <div style={{ fontSize: "0.68rem", color: st.active ? "#34d399" : "#64748b", fontWeight: 700 }}>
+                  STAGE {st.num}
+                </div>
+                <div style={{ fontSize: "0.8rem", color: st.active ? "#ffffff" : "#94a3b8", fontWeight: 600 }}>
+                  {st.name} {st.active ? "✓" : ""}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Official IEC Decision Banner (if available) */}
+        {(complianceData?.iec_decision || ["approved", "modification_required", "not_approved", "activated"].includes(sStatus)) && (
+          <div style={{ padding: "16px 24px", background: "rgba(212, 175, 55, 0.08)", borderBottom: "1px solid rgba(212, 175, 55, 0.2)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "12px" }}>
+            <div>
+              <span style={{ fontSize: "0.74rem", color: "#d4af37", fontWeight: 700, textTransform: "uppercase" }}>
+                OFFICIAL ETHICS COMMITTEE DECISION
+              </span>
+              <div style={{ display: "flex", alignItems: "center", gap: "10px", marginTop: "4px" }}>
+                <strong style={{ fontSize: "1.1rem", color: "#ffffff" }}>
+                  Outcome: {complianceData?.iec_decision?.decision_label || (sStatus === "activated" ? "Approved" : sStatus.replace(/_/g, " ").toUpperCase())}
+                </strong>
+                {complianceData?.iec_decision?.decision_date && (
+                  <span style={{ fontSize: "0.8rem", color: "#94a3b8" }}>
+                    • Issued on {new Date(complianceData.iec_decision.decision_date).toLocaleDateString()}
+                  </span>
+                )}
+              </div>
+              {complianceData?.iec_decision?.remarks && (
+                <p style={{ margin: "4px 0 0 0", color: "#cbd5e1", fontSize: "0.84rem" }}>
+                  Committee Remarks: <em>"{complianceData.iec_decision.remarks}"</em>
+                </p>
+              )}
+            </div>
+            {sStatus === "activated" && (
+              <span className="f3-badge" style={{ background: "linear-gradient(135deg, rgba(212,175,55,0.3), rgba(16,185,129,0.3))", color: "#facc15", border: "1px solid #d4af37", fontWeight: 700, padding: "6px 12px" }}>
+                ⚡ STUDY ACTIVATED
+              </span>
+            )}
+          </div>
+        )}
+
+        {/* Regulatory & CTRI Details (if available) */}
+        {complianceData?.regulatory_tracking && (
+          <div style={{ padding: "16px 24px", background: "rgba(18, 30, 26, 0.5)", borderBottom: "1px solid rgba(255,255,255,0.08)", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "16px" }}>
+            <div style={{ background: "rgba(10, 18, 15, 0.7)", padding: "12px 16px", borderRadius: "8px", border: "1px solid rgba(255,255,255,0.08)" }}>
+              <span style={{ fontSize: "0.72rem", color: "#60a5fa", fontWeight: 700, textTransform: "uppercase" }}>
+                STATUTORY REGULATORY STATUS
+              </span>
+              <div style={{ marginTop: "4px", fontSize: "0.92rem", fontWeight: 600, color: "#ffffff" }}>
+                {complianceData.regulatory_tracking.regulatory?.status || "In Progress"}
+              </div>
+              {complianceData.regulatory_tracking.regulatory?.reference_number && (
+                <div style={{ fontSize: "0.78rem", color: "#94a3b8", fontFamily: "monospace", marginTop: "2px" }}>
+                  Ref: {complianceData.regulatory_tracking.regulatory.reference_number}
+                </div>
+              )}
+            </div>
+
+            <div style={{ background: "rgba(10, 18, 15, 0.7)", padding: "12px 16px", borderRadius: "8px", border: "1px solid rgba(255,255,255,0.08)" }}>
+              <span style={{ fontSize: "0.72rem", color: "#34d399", fontWeight: 700, textTransform: "uppercase" }}>
+                CTRI REGISTRATION
+              </span>
+              <div style={{ marginTop: "4px", fontSize: "0.92rem", fontWeight: 600, color: "#ffffff" }}>
+                {complianceData.regulatory_tracking.ctri?.status || "In Progress"}
+              </div>
+              {complianceData.regulatory_tracking.ctri?.reg_number && (
+                <div style={{ fontSize: "0.78rem", color: "#34d399", fontFamily: "monospace", fontWeight: 700, marginTop: "2px" }}>
+                  {complianceData.regulatory_tracking.ctri.reg_number}
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
         {/* Core Metadata Grid */}
         <div className="f3-detail-section">
           <div className="f3-detail-section-heading">

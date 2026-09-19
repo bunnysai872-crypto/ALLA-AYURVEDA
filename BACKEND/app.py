@@ -5,6 +5,15 @@ from config import Config
 from extensions import db, jwt
 from routes.auth import auth_bp
 from routes.documents import documents_bp
+from routes.studies import studies_bp
+from routes.notifications import notifications_bp
+from routes.profile import profile_bp
+from routes.iec_secretariat import iec_secretariat_bp
+from routes.iec_member import iec_member_bp
+from routes.ai_review_summary import ai_review_summary_bp
+from routes.iec_decision import iec_decision_bp
+from routes.regulatory import regulatory_bp
+from routes.participants import participants_bp
 
 
 def register_jwt_handlers(jwt_manager):
@@ -51,6 +60,15 @@ def create_app():
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(documents_bp)
+    app.register_blueprint(studies_bp)
+    app.register_blueprint(notifications_bp)
+    app.register_blueprint(profile_bp)
+    app.register_blueprint(iec_secretariat_bp)
+    app.register_blueprint(iec_member_bp)
+    app.register_blueprint(ai_review_summary_bp)
+    app.register_blueprint(iec_decision_bp)
+    app.register_blueprint(regulatory_bp)
+    app.register_blueprint(participants_bp)
 
     @app.errorhandler(413)
     def request_entity_too_large(error):
@@ -71,7 +89,17 @@ def create_app():
 
 app = create_app()
 
-from models import User, Study, Document, DocumentVersion, QualityCheck
+from models import (
+    User,
+    Study,
+    Document,
+    DocumentVersion,
+    QualityCheck,
+    Protocol,
+    RegulatoryTracking,
+    Participant,
+    InformedConsent,
+)
 
 with app.app_context():
     db.create_all()

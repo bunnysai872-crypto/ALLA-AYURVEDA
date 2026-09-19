@@ -1,0 +1,231 @@
+/**
+ * ALLA AYURVEDA — AI REVIEW SUMMARY MODULE STYLES
+ * Theme: Emerald & Gold Ayurvedic Clinical Ethics Workspace
+ */
+
+.ai-summary-container {
+  padding: 24px 32px;
+  max-width: 1280px;
+  margin: 0 auto;
+  color: #e2e8f0;
+}
+
+.ai-summary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ai-summary-header h2 {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0 0 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ai-summary-subtitle {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   DISCLAIMER & TRANSPARENCY BANNERS
+   -------------------------------------------------------------------------- */
+.ai-summary-disclaimer-box {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(20, 40, 35, 0.4) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-left: 4px solid #d4af37;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+}
+
+.ai-summary-disclaimer-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #fbbf24;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ai-summary-disclaimer-text {
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   EXECUTIVE SNAPSHOT CARD
+   -------------------------------------------------------------------------- */
+.ai-summary-snapshot-card {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(13, 26, 23, 0.95) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 26px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-summary-snapshot-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.ai-summary-snapshot-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #34d399;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ai-summary-snapshot-text {
+  font-size: 0.96rem;
+  color: #f1f5f9;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION CARD WRAPPERS
+   -------------------------------------------------------------------------- */
+.ai-summary-section-card {
+  background: linear-gradient(135deg, rgba(17, 35, 31, 0.85) 0%, rgba(13, 26, 23, 0.95) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 12px;
+  padding: 22px;
+  margin-bottom: 22px;
+}
+
+.ai-summary-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(45, 75, 65, 0.5);
+}
+
+.ai-summary-section-title {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #f8fafc;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   GRID METADATA
+   -------------------------------------------------------------------------- */
+.ai-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px 20px;
+}
+
+.ai-summary-meta-item strong {
+  display: block;
+  font-size: 0.74rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.ai-summary-meta-item span {
+  font-size: 0.9rem;
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   STRENGTHS, CONCERNS, FOLLOW-UPS
+   -------------------------------------------------------------------------- */
+.ai-summary-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ai-summary-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.ai-summary-strength-item {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #d1fae5;
+}
+
+.ai-summary-concern-item {
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  color: #fef3c7;
+}
+
+.ai-summary-followup-item {
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  color: #dbeafe;
+}
+
+/* --------------------------------------------------------------------------
+   ETHICAL RISK GRID (7 DOMAINS)
+   -------------------------------------------------------------------------- */
+.ai-summary-risk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.ai-summary-risk-card {
+  background: rgba(10, 22, 19, 0.7);
+  border: 1px solid rgba(45, 75, 65, 0.4);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.ai-summary-risk-card-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ai-summary-risk-card-body {
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+}

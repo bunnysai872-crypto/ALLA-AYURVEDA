@@ -1,0 +1,572 @@
+/**
+ * ALLA AYURVEDA — IEC MEMBER MODULE STYLES
+ * Theme: Emerald & Gold Ayurvedic Clinical Ethics Workspace
+ */
+
+.iec-member-container {
+  padding: 24px 32px;
+  max-width: 1300px;
+  margin: 0 auto;
+  color: #e2e8f0;
+}
+
+.iec-member-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.iec-member-header h2 {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0 0 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.iec-member-subtitle {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   KPI GRID
+   -------------------------------------------------------------------------- */
+.iec-member-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.iec-member-kpi-card {
+  background: linear-gradient(135deg, rgba(17, 35, 31, 0.85) 0%, rgba(13, 26, 23, 0.95) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.iec-member-kpi-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212, 175, 55, 0.45);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.iec-member-kpi-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #10b981, #d4af37);
+  opacity: 0.8;
+}
+
+.iec-member-kpi-card.highlight::before {
+  background: linear-gradient(90deg, #d4af37, #f59e0b);
+}
+
+.iec-member-kpi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.iec-member-kpi-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+}
+
+.iec-member-kpi-icon {
+  font-size: 1.25rem;
+  opacity: 0.85;
+}
+
+.iec-member-kpi-value {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #f1f5f9;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.iec-member-kpi-subtext {
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+/* --------------------------------------------------------------------------
+   FILTERS & CONTROLS
+   -------------------------------------------------------------------------- */
+.iec-member-filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.iec-member-search-box {
+  flex: 1;
+  min-width: 260px;
+  position: relative;
+}
+
+.iec-member-search-input {
+  width: 100%;
+  background: rgba(15, 30, 26, 0.85);
+  border: 1px solid rgba(45, 75, 65, 0.6);
+  border-radius: 8px;
+  padding: 10px 14px 10px 36px;
+  color: #f1f5f9;
+  font-size: 0.88rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.iec-member-search-input:focus {
+  border-color: #d4af37;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.15);
+}
+
+.iec-member-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #64748b;
+  font-size: 0.95rem;
+  pointer-events: none;
+}
+
+.iec-member-tabs-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.iec-member-tab-btn {
+  background: rgba(20, 40, 35, 0.6);
+  border: 1px solid rgba(45, 75, 65, 0.5);
+  color: #94a3b8;
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.iec-member-tab-btn:hover {
+  background: rgba(30, 60, 50, 0.7);
+  color: #e2e8f0;
+}
+
+.iec-member-tab-btn.active {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: #10b981;
+  color: #6ee7b7;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   QUEUE TABLE & STUDY CARDS
+   -------------------------------------------------------------------------- */
+.iec-member-table-card {
+  background: linear-gradient(135deg, rgba(17, 35, 31, 0.75) 0%, rgba(13, 26, 23, 0.85) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.iec-member-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.iec-member-table th {
+  background: rgba(10, 22, 19, 0.9);
+  padding: 13px 16px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  border-bottom: 1px solid rgba(45, 75, 65, 0.5);
+}
+
+.iec-member-table td {
+  padding: 14px 16px;
+  font-size: 0.86rem;
+  border-bottom: 1px solid rgba(45, 75, 65, 0.3);
+  color: #cbd5e1;
+  vertical-align: middle;
+}
+
+.iec-member-table tbody tr {
+  transition: background 0.15s ease;
+}
+
+.iec-member-table tbody tr:hover {
+  background: rgba(212, 175, 55, 0.04);
+}
+
+/* --------------------------------------------------------------------------
+   STATUS BADGES
+   -------------------------------------------------------------------------- */
+.iec-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.iec-badge-ready {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.iec-badge-under-review {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.iec-badge-rec-submitted {
+  background: rgba(59, 130, 246, 0.15);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.35);
+}
+
+.iec-badge-rec-approval {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+  border: 1px solid #10b981;
+}
+
+.iec-badge-rec-modification {
+  background: rgba(245, 158, 11, 0.2);
+  color: #f59e0b;
+  border: 1px solid #f59e0b;
+}
+
+.iec-badge-rec-rejection {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border: 1px solid #ef4444;
+}
+
+/* --------------------------------------------------------------------------
+   BUTTONS
+   -------------------------------------------------------------------------- */
+.iec-btn-primary {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  border: none;
+  padding: 9px 18px;
+  border-radius: 7px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.25);
+}
+
+.iec-btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
+  transform: translateY(-1px);
+}
+
+.iec-btn-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.iec-btn-secondary {
+  background: rgba(30, 60, 50, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #f1f5f9;
+  padding: 8px 16px;
+  border-radius: 7px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.iec-btn-secondary:hover {
+  background: rgba(45, 85, 70, 0.7);
+  border-color: #d4af37;
+}
+
+.iec-btn-gold {
+  background: linear-gradient(135deg, #d4af37 0%, #b89326 100%);
+  color: #0b1613;
+  border: none;
+  padding: 9px 18px;
+  border-radius: 7px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: all 0.2s;
+}
+
+.iec-btn-gold:hover:not(:disabled) {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   DOSSIER & STUDY REVIEW PAGE
+   -------------------------------------------------------------------------- */
+.iec-dossier-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.iec-panel-card {
+  background: linear-gradient(135deg, rgba(17, 35, 31, 0.85) 0%, rgba(13, 26, 23, 0.95) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  border-radius: 12px;
+  padding: 22px;
+}
+
+.iec-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(45, 75, 65, 0.5);
+}
+
+.iec-panel-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0;
+}
+
+.iec-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px 20px;
+}
+
+.iec-meta-item strong {
+  display: block;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.iec-meta-item span {
+  font-size: 0.92rem;
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   STRUCTURED REVIEW FORM & DOMAINS
+   -------------------------------------------------------------------------- */
+.iec-domain-card {
+  background: rgba(14, 28, 25, 0.7);
+  border: 1px solid rgba(45, 75, 65, 0.5);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  transition: border-color 0.2s;
+}
+
+.iec-domain-card:focus-within {
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+.iec-domain-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.iec-domain-title {
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: #f8fafc;
+  margin: 0 0 4px 0;
+}
+
+.iec-domain-desc {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.iec-domain-rating-select {
+  background: rgba(10, 22, 19, 0.9);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #f1f5f9;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.iec-domain-rating-select:focus {
+  border-color: #10b981;
+}
+
+.iec-domain-textarea {
+  width: 100%;
+  background: rgba(10, 22, 19, 0.8);
+  border: 1px solid rgba(45, 75, 65, 0.6);
+  border-radius: 6px;
+  padding: 10px 12px;
+  color: #f1f5f9;
+  font-size: 0.86rem;
+  min-height: 64px;
+  resize: vertical;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+
+.iec-domain-textarea:focus {
+  border-color: #10b981;
+  outline: none;
+}
+
+/* --------------------------------------------------------------------------
+   RECOMMENDATION CARDS SELECTOR (3 Options)
+   -------------------------------------------------------------------------- */
+.iec-recommendation-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.iec-rec-card {
+  background: rgba(14, 28, 25, 0.7);
+  border: 2px solid rgba(45, 75, 65, 0.5);
+  border-radius: 10px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.iec-rec-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+.iec-rec-card.selected-approval {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.12);
+}
+
+.iec-rec-card.selected-modification {
+  border-color: #f59e0b;
+  background: rgba(245, 158, 11, 0.12);
+}
+
+.iec-rec-card.selected-rejection {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.12);
+}
+
+.iec-rec-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.iec-rec-card.selected-approval .iec-rec-card-title {
+  color: #34d399;
+}
+
+.iec-rec-card.selected-modification .iec-rec-card-title {
+  color: #fbbf24;
+}
+
+.iec-rec-card.selected-rejection .iec-rec-card-title {
+  color: #f87171;
+}
+
+.iec-rec-card-desc {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   READ-ONLY SUMMARY BANNER & BOX
+   -------------------------------------------------------------------------- */
+.iec-summary-banner {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(6, 78, 59, 0.25) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.iec-summary-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.iec-summary-icon {
+  font-size: 1.8rem;
+}

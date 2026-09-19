@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { setStoredAuth } from "../frontend3/utils/auth";
 
 function UserLogin() {
   const navigate = useNavigate();
@@ -54,17 +55,73 @@ function UserLogin() {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    alert(`Login submitted for ${currentRole.title}`);
+    try {
+      const backendRoleMap = {
+        researcher: "researcher",
+        "iec-secretariat": "iec_secretariat",
+        "iec-member": "iec_member",
+        "regulatory-admin": "regulatory_admin",
+      };
 
-    console.log({
-      role,
-      email: formData.email,
-      password: formData.password,
-      remember: formData.remember,
-    });
+      const backendRole = backendRoleMap[role];
+
+      if (!backendRole) {
+        alert("Invalid role");
+        return;
+      }
+
+      const response = await fetch("http://127.0.0.1:5000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+          role: backendRole,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        alert(data.message || "Login failed");
+        return;
+      }
+
+      setStoredAuth(data.token, data.user);
+
+      if (role === "researcher") {
+        navigate("/researcher-workspace");
+        return;
+      }
+
+      if (role === "iec-secretariat") {
+        navigate("/iec-secretariat-workspace");
+        return;
+      }
+
+      if (role === "iec-member") {
+        navigate("/iec-member-workspace");
+        return;
+      }
+
+      if (role === "regulatory-admin") {
+        navigate("/regulatory-admin-workspace");
+        return;
+      }
+
+      alert(`${currentRole.title} login successful`);
+    } catch (error) {
+      console.error("Login error:", error);
+      alert(
+        "Unable to connect to the backend. Please make sure the Flask server is running."
+      );
+    }
   };
 
   return (

@@ -15,7 +15,11 @@ import CreateStudyPage from "./pages/CreateStudyPage";
 import StudyDetailsPage from "./pages/StudyDetailsPage";
 import EditStudyPage from "./pages/EditStudyPage";
 import ProtocolBuilderPage from "./pages/ProtocolBuilderPage";
-import ComingSoonPage from "./pages/ComingSoonPage";
+import DocumentationPage from "./pages/DocumentationPage";
+import AIQualityGatePage from "./pages/AIQualityGatePage";
+import ParticipantManagementPage from "./pages/ParticipantManagementPage";
+import NotificationsPage from "./pages/NotificationsPage";
+import ProfilePage from "./pages/ProfilePage";
 
 /**
  * Initial auth evaluation helper
@@ -188,13 +192,40 @@ export function ResearcherWorkspace() {
         );
 
       case WORKSPACE_TABS.DOCUMENTS:
+        return (
+          <DocumentationPage
+            activeStudy={activeStudy}
+            onSelectTab={handleSelectTab}
+          />
+        );
+
       case WORKSPACE_TABS.AI_QUALITY_GATE:
+        return (
+          <AIQualityGatePage
+            activeStudy={activeStudy}
+            onSelectTab={handleSelectTab}
+          />
+        );
+
+      case WORKSPACE_TABS.PARTICIPANTS:
+        return (
+          <ParticipantManagementPage
+            activeStudy={activeStudy}
+            onSelectTab={handleSelectTab}
+          />
+        );
+
       case WORKSPACE_TABS.NOTIFICATIONS:
+        return (
+          <NotificationsPage
+            onSelectTab={handleSelectTab}
+          />
+        );
+
       case WORKSPACE_TABS.PROFILE:
         return (
-          <ComingSoonPage
-            tabId={activeTab}
-            onNavigateToDashboard={() => handleSelectTab(WORKSPACE_TABS.DASHBOARD)}
+          <ProfilePage
+            onSelectTab={handleSelectTab}
           />
         );
 

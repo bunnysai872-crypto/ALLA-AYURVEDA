@@ -1,0 +1,126 @@
+/**
+ * ALLA AYURVEDA — FRONTEND 3
+ * Profile Module Styles
+ */
+
+/* Profile Hero Card */
+.f3-profile-hero {
+  background: linear-gradient(135deg, rgba(16, 40, 30, 0.95), rgba(7, 19, 14, 0.98));
+  border: 1px solid var(--f3-border, rgba(159, 207, 139, 0.14));
+  border-radius: var(--f3-radius-lg, 16px);
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.f3-profile-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--f3-brand-green, #1d5c46), var(--f3-brand-gold, #c69a58));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 800;
+  color: #f4f7f2;
+  box-shadow: 0 0 20px rgba(159, 207, 139, 0.2);
+  border: 2px solid rgba(159, 207, 139, 0.3);
+  flex-shrink: 0;
+}
+
+.f3-profile-hero-info {
+  flex: 1;
+}
+
+.f3-profile-hero-info h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  color: var(--f3-text-primary, #f4f7f2);
+}
+
+.f3-profile-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--f3-text-secondary, #aebbb2);
+}
+
+.f3-profile-role-badge {
+  background: rgba(159, 207, 139, 0.12);
+  color: var(--f3-brand-green-light, #9fcf8b);
+  border: 1px solid rgba(159, 207, 139, 0.28);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 3px 10px;
+  border-radius: var(--f3-radius-pill, 9999px);
+}
+
+/* Two Column Grid */
+.f3-profile-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .f3-profile-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.f3-profile-panel {
+  background: var(--f3-bg-card, #10281e);
+  border: 1px solid var(--f3-border, rgba(159, 207, 139, 0.14));
+  border-radius: var(--f3-radius-lg, 16px);
+  padding: 24px;
+}
+
+.f3-profile-panel h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  color: var(--f3-text-primary, #f4f7f2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Security notice box */
+.f3-profile-security-box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--f3-border-subtle, rgba(255, 255, 255, 0.07));
+  border-radius: var(--f3-radius-md, 10px);
+  padding: 16px;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--f3-text-muted, #75857b);
+}
+
+.f3-profile-security-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.f3-profile-security-label {
+  color: var(--f3-text-secondary, #aebbb2);
+  font-weight: 500;
+}
+
+.f3-profile-security-val {
+  color: var(--f3-brand-green-light, #9fcf8b);
+  font-family: var(--f3-font-mono, monospace);
+  font-weight: 600;
+}

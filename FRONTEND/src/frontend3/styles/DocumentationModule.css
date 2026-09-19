@@ -1,0 +1,226 @@
+/**
+ * ALLA AYURVEDA — FRONTEND 3
+ * Documentation & Document Management Module Styles
+ */
+
+.f3-doc-grid-top {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.f3-doc-stat-card {
+  background: var(--f3-bg-card, #10281e);
+  border: 1px solid var(--f3-border, rgba(159, 207, 139, 0.14));
+  border-radius: var(--f3-radius-md, 10px);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.f3-doc-stat-card:hover {
+  border-color: var(--f3-brand-green-light, #9fcf8b);
+  transform: translateY(-2px);
+}
+
+.f3-doc-stat-icon {
+  font-size: 28px;
+  background: rgba(159, 207, 139, 0.08);
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--f3-radius-md, 10px);
+}
+
+.f3-doc-stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.f3-doc-stat-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--f3-text-muted, #75857b);
+}
+
+.f3-doc-stat-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--f3-text-primary, #f4f7f2);
+  margin-top: 2px;
+}
+
+/* Upload Dropzone */
+.f3-doc-upload-card {
+  background: var(--f3-bg-card, #10281e);
+  border: 1px solid var(--f3-border, rgba(159, 207, 139, 0.14));
+  border-radius: var(--f3-radius-lg, 16px);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.f3-doc-dropzone {
+  border: 2px dashed rgba(159, 207, 139, 0.35);
+  border-radius: var(--f3-radius-md, 10px);
+  padding: 32px 20px;
+  text-align: center;
+  background: rgba(159, 207, 139, 0.02);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.f3-doc-dropzone:hover,
+.f3-doc-dropzone.f3-dropzone-active {
+  border-color: var(--f3-brand-green-light, #9fcf8b);
+  background: rgba(159, 207, 139, 0.06);
+}
+
+.f3-dropzone-icon {
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+
+.f3-dropzone-prompt {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--f3-text-primary, #f4f7f2);
+  margin-bottom: 4px;
+}
+
+.f3-dropzone-sub {
+  font-size: 12px;
+  color: var(--f3-text-muted, #75857b);
+}
+
+.f3-doc-selected-file-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(159, 207, 139, 0.12);
+  border: 1px solid rgba(159, 207, 139, 0.3);
+  padding: 6px 14px;
+  border-radius: var(--f3-radius-pill, 9999px);
+  font-size: 13px;
+  color: var(--f3-brand-green-light, #9fcf8b);
+  margin-top: 12px;
+}
+
+/* Document Type Badges */
+.f3-doc-type-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.f3-doc-type-protocol {
+  background: rgba(198, 154, 88, 0.15);
+  color: #e6be7c;
+  border: 1px solid rgba(198, 154, 88, 0.35);
+}
+
+.f3-doc-type-icf {
+  background: rgba(59, 130, 246, 0.15);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.35);
+}
+
+.f3-doc-type-brochure {
+  background: rgba(168, 85, 247, 0.15);
+  color: #d8b4fe;
+  border: 1px solid rgba(168, 85, 247, 0.35);
+}
+
+.f3-doc-type-ethics {
+  background: rgba(34, 197, 94, 0.15);
+  color: #86efac;
+  border: 1px solid rgba(34, 197, 94, 0.35);
+}
+
+.f3-doc-type-other {
+  background: rgba(148, 163, 184, 0.15);
+  color: #cbd5e1;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+/* Document Version Pill */
+.f3-doc-version-pill {
+  font-family: var(--f3-font-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--f3-text-secondary, #aebbb2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Document Action Buttons */
+.f3-doc-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Version List Timeline */
+.f3-version-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.f3-version-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--f3-border-subtle, rgba(255, 255, 255, 0.07));
+  border-radius: var(--f3-radius-md, 10px);
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.f3-version-item-active {
+  border-color: var(--f3-brand-green-light, #9fcf8b);
+  background: rgba(159, 207, 139, 0.05);
+}
+
+.f3-version-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.f3-version-num {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--f3-brand-green-light, #9fcf8b);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.f3-version-meta {
+  font-size: 12px;
+  color: var(--f3-text-muted, #75857b);
+}
+
+.f3-version-summary {
+  font-size: 13px;
+  color: var(--f3-text-secondary, #aebbb2);
+  margin-top: 2px;
+  font-style: italic;
+}

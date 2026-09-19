@@ -1,0 +1,293 @@
+{
+  "study_id": "ALLA-AI-SUM-001",
+  "total_reviews": 13,
+  "updated_at": "2026-09-18T13:01:56.295771Z",
+  "reviews": [
+    {
+      "review_id": "rev_test_a",
+      "study_id": "ALLA-AI-SUM-001",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The study possesses robust scientific rationale grounded in Ayurvedic classical texts and appropriate safety safeguards.",
+      "sections": {
+        "scientific_validity": {
+          "rating": "satisfactory",
+          "notes": "Strong Medhya Rasayana justification."
+        },
+        "safety_monitoring": {
+          "rating": "satisfactory",
+          "notes": "Liver function monitoring protocol is adequate."
+        }
+      },
+      "reviewer_notes": "Recommend unanimous committee endorsement.",
+      "review_timestamp": "2026-09-08T10:00:00Z"
+    },
+    {
+      "review_id": "rev_test_a",
+      "study_id": "ALLA-AI-SUM-001",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The study possesses robust scientific rationale grounded in Ayurvedic classical texts and appropriate safety safeguards.",
+      "sections": {
+        "scientific_validity": {
+          "rating": "satisfactory",
+          "notes": "Strong Medhya Rasayana justification."
+        },
+        "safety_monitoring": {
+          "rating": "satisfactory",
+          "notes": "Liver function monitoring protocol is adequate."
+        }
+      },
+      "reviewer_notes": "Recommend unanimous committee endorsement.",
+      "review_timestamp": "2026-09-08T10:00:00Z"
+    },
+    {
+      "review_id": "rev_test_a",
+      "study_id": "ALLA-AI-SUM-001",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The study possesses robust scientific rationale grounded in Ayurvedic classical texts and appropriate safety safeguards.",
+      "sections": {
+        "scientific_validity": {
+          "rating": "satisfactory",
+          "notes": "Strong Medhya Rasayana justification."
+        },
+        "safety_monitoring": {
+          "rating": "satisfactory",
+          "notes": "Liver function monitoring protocol is adequate."
+        }
+      },
+      "reviewer_notes": "Recommend unanimous committee endorsement.",
+      "review_timestamp": "2026-09-08T10:00:00Z"
+    },
+    {
+      "review_id": "rev_test_a",
+      "study_id": "ALLA-AI-SUM-001",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The study possesses robust scientific rationale grounded in Ayurvedic classical texts and appropriate safety safeguards.",
+      "sections": {
+        "scientific_validity": {
+          "rating": "satisfactory",
+          "notes": "Strong Medhya Rasayana justification."
+        },
+        "safety_monitoring": {
+          "rating": "satisfactory",
+          "notes": "Liver function monitoring protocol is adequate."
+        }
+      },
+      "reviewer_notes": "Recommend unanimous committee endorsement.",
+      "review_timestamp": "2026-09-08T10:00:00Z"
+    },
+    {
+      "review_id": "rev_test_a",
+      "study_id": "ALLA-AI-SUM-001",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The study possesses robust scientific rationale grounded in Ayurvedic classical texts and appropriate safety safeguards.",
+      "sections": {
+        "scientific_validity": {
+          "rating": "satisfactory",
+          "notes": "Strong Medhya Rasayana justification."
+        },
+        "safety_monitoring": {
+          "rating": "satisfactory",
+          "notes": "Liver function monitoring protocol is adequate."
+        }
+      },
+      "reviewer_notes": "Recommend unanimous committee endorsement.",
+      "review_timestamp": "2026-09-08T10:00:00Z"
+    },
+    {
+      "review_id": "rev_test_a",
+      "study_id": "ALLA-AI-SUM-001",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The study possesses robust scientific rationale grounded in Ayurvedic classical texts and appropriate safety safeguards.",
+      "sections": {
+        "scientific_validity": {
+          "rating": "satisfactory",
+          "notes": "Strong Medhya Rasayana justification."
+        },
+        "safety_monitoring": {
+          "rating": "satisfactory",
+          "notes": "Liver function monitoring protocol is adequate."
+        }
+      },
+      "reviewer_notes": "Recommend unanimous committee endorsement.",
+      "review_timestamp": "2026-09-08T10:00:00Z"
+    },
+    {
+      "review_id": "rev_test_a",
+      "study_id": "ALLA-AI-SUM-001",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The study possesses robust scientific rationale grounded in Ayurvedic classical texts and appropriate safety safeguards.",
+      "sections": {
+        "scientific_validity": {
+          "rating": "satisfactory",
+          "notes": "Strong Medhya Rasayana justification."
+        },
+        "safety_monitoring": {
+          "rating": "satisfactory",
+          "notes": "Liver function monitoring protocol is adequate."
+        }
+      },
+      "reviewer_notes": "Recommend unanimous committee endorsement.",
+      "review_timestamp": "2026-09-08T10:00:00Z"
+    },
+    {
+      "review_id": "rev_test_a",
+      "study_id": "ALLA-AI-SUM-001",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The study possesses robust scientific rationale grounded in Ayurvedic classical texts and appropriate safety safeguards.",
+      "sections": {
+        "scientific_validity": {
+          "rating": "satisfactory",
+          "notes": "Strong Medhya Rasayana justification."
+        },
+        "safety_monitoring": {
+          "rating": "satisfactory",
+          "notes": "Liver function monitoring protocol is adequate."
+        }
+      },
+      "reviewer_notes": "Recommend unanimous committee endorsement.",
+      "review_timestamp": "2026-09-08T10:00:00Z"
+    },
+    {
+      "review_id": "rev_test_a",
+      "study_id": "ALLA-AI-SUM-001",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The study possesses robust scientific rationale grounded in Ayurvedic classical texts and appropriate safety safeguards.",
+      "sections": {
+        "scientific_validity": {
+          "rating": "satisfactory",
+          "notes": "Strong Medhya Rasayana justification."
+        },
+        "safety_monitoring": {
+          "rating": "satisfactory",
+          "notes": "Liver function monitoring protocol is adequate."
+        }
+      },
+      "reviewer_notes": "Recommend unanimous committee endorsement.",
+      "review_timestamp": "2026-09-08T10:00:00Z"
+    },
+    {
+      "review_id": "rev_test_a",
+      "study_id": "ALLA-AI-SUM-001",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The study possesses robust scientific rationale grounded in Ayurvedic classical texts and appropriate safety safeguards.",
+      "sections": {
+        "scientific_validity": {
+          "rating": "satisfactory",
+          "notes": "Strong Medhya Rasayana justification."
+        },
+        "safety_monitoring": {
+          "rating": "satisfactory",
+          "notes": "Liver function monitoring protocol is adequate."
+        }
+      },
+      "reviewer_notes": "Recommend unanimous committee endorsement.",
+      "review_timestamp": "2026-09-08T10:00:00Z"
+    },
+    {
+      "review_id": "rev_test_a",
+      "study_id": "ALLA-AI-SUM-001",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The study possesses robust scientific rationale grounded in Ayurvedic classical texts and appropriate safety safeguards.",
+      "sections": {
+        "scientific_validity": {
+          "rating": "satisfactory",
+          "notes": "Strong Medhya Rasayana justification."
+        },
+        "safety_monitoring": {
+          "rating": "satisfactory",
+          "notes": "Liver function monitoring protocol is adequate."
+        }
+      },
+      "reviewer_notes": "Recommend unanimous committee endorsement.",
+      "review_timestamp": "2026-09-08T10:00:00Z"
+    },
+    {
+      "review_id": "rev_test_a",
+      "study_id": "ALLA-AI-SUM-001",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The study possesses robust scientific rationale grounded in Ayurvedic classical texts and appropriate safety safeguards.",
+      "sections": {
+        "scientific_validity": {
+          "rating": "satisfactory",
+          "notes": "Strong Medhya Rasayana justification."
+        },
+        "safety_monitoring": {
+          "rating": "satisfactory",
+          "notes": "Liver function monitoring protocol is adequate."
+        }
+      },
+      "reviewer_notes": "Recommend unanimous committee endorsement.",
+      "review_timestamp": "2026-09-08T10:00:00Z"
+    },
+    {
+      "review_id": "rev_test_a",
+      "study_id": "ALLA-AI-SUM-001",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The study possesses robust scientific rationale grounded in Ayurvedic classical texts and appropriate safety safeguards.",
+      "sections": {
+        "scientific_validity": {
+          "rating": "satisfactory",
+          "notes": "Strong Medhya Rasayana justification."
+        },
+        "safety_monitoring": {
+          "rating": "satisfactory",
+          "notes": "Liver function monitoring protocol is adequate."
+        }
+      },
+      "reviewer_notes": "Recommend unanimous committee endorsement.",
+      "review_timestamp": "2026-09-08T10:00:00Z"
+    }
+  ]
+}

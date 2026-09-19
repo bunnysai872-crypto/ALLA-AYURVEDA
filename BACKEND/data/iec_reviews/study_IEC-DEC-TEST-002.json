@@ -1,0 +1,117 @@
+{
+  "study_id": "IEC-DEC-TEST-002",
+  "total_reviews": 10,
+  "updated_at": "2026-09-18T13:01:57.130910Z",
+  "reviews": [
+    {
+      "review_id": "rev_test_dec_2",
+      "study_id": "IEC-DEC-TEST-002",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "modify",
+      "recommendation_label": "Modify / Revisions Required",
+      "comments": "Informed consent needs clearer vernacular translation.",
+      "review_timestamp": "2026-09-18T11:53:25.855974Z"
+    },
+    {
+      "review_id": "rev_test_dec_2",
+      "study_id": "IEC-DEC-TEST-002",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "modify",
+      "recommendation_label": "Modify / Revisions Required",
+      "comments": "Informed consent needs clearer vernacular translation.",
+      "review_timestamp": "2026-09-18T11:54:11.332920Z"
+    },
+    {
+      "review_id": "rev_test_dec_2",
+      "study_id": "IEC-DEC-TEST-002",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "modify",
+      "recommendation_label": "Modify / Revisions Required",
+      "comments": "Informed consent needs clearer vernacular translation.",
+      "review_timestamp": "2026-09-18T11:54:42.084330Z"
+    },
+    {
+      "review_id": "rev_test_dec_2",
+      "study_id": "IEC-DEC-TEST-002",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "modify",
+      "recommendation_label": "Modify / Revisions Required",
+      "comments": "Informed consent needs clearer vernacular translation.",
+      "review_timestamp": "2026-09-18T12:41:47.551212Z"
+    },
+    {
+      "review_id": "rev_test_dec_2",
+      "study_id": "IEC-DEC-TEST-002",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "modify",
+      "recommendation_label": "Modify / Revisions Required",
+      "comments": "Informed consent needs clearer vernacular translation.",
+      "review_timestamp": "2026-09-18T12:47:27.111035Z"
+    },
+    {
+      "review_id": "rev_test_dec_2",
+      "study_id": "IEC-DEC-TEST-002",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "modify",
+      "recommendation_label": "Modify / Revisions Required",
+      "comments": "Informed consent needs clearer vernacular translation.",
+      "review_timestamp": "2026-09-18T12:48:26.094133Z"
+    },
+    {
+      "review_id": "rev_test_dec_2",
+      "study_id": "IEC-DEC-TEST-002",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "modify",
+      "recommendation_label": "Modify / Revisions Required",
+      "comments": "Informed consent needs clearer vernacular translation.",
+      "review_timestamp": "2026-09-18T12:49:18.631949Z"
+    },
+    {
+      "review_id": "rev_test_dec_2",
+      "study_id": "IEC-DEC-TEST-002",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "modify",
+      "recommendation_label": "Modify / Revisions Required",
+      "comments": "Informed consent needs clearer vernacular translation.",
+      "review_timestamp": "2026-09-18T13:00:36.539351Z"
+    },
+    {
+      "review_id": "rev_test_dec_2",
+      "study_id": "IEC-DEC-TEST-002",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "modify",
+      "recommendation_label": "Modify / Revisions Required",
+      "comments": "Informed consent needs clearer vernacular translation.",
+      "review_timestamp": "2026-09-18T13:01:27.404379Z"
+    },
+    {
+      "review_id": "rev_test_dec_2",
+      "study_id": "IEC-DEC-TEST-002",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "modify",
+      "recommendation_label": "Modify / Revisions Required",
+      "comments": "Informed consent needs clearer vernacular translation.",
+      "review_timestamp": "2026-09-18T13:01:57.129653Z"
+    }
+  ]
+}

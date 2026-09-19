@@ -1,0 +1,137 @@
+/**
+ * ALLA AYURVEDA — FRONTEND 3
+ * Notifications Module Styles
+ */
+
+.f3-notif-header-stats {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.f3-notif-unread-badge {
+  background: var(--f3-brand-gold, #c69a58);
+  color: #07130e;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: var(--f3-radius-pill, 9999px);
+}
+
+.f3-notif-card {
+  background: var(--f3-bg-card, #10281e);
+  border: 1px solid var(--f3-border, rgba(159, 207, 139, 0.14));
+  border-radius: var(--f3-radius-md, 10px);
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: all 0.15s ease;
+  position: relative;
+}
+
+.f3-notif-card:hover {
+  border-color: rgba(159, 207, 139, 0.3);
+  transform: translateX(2px);
+}
+
+.f3-notif-unread {
+  background: rgba(16, 40, 30, 0.95);
+  border-left: 4px solid var(--f3-brand-gold, #c69a58);
+}
+
+.f3-notif-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.f3-notif-icon-study {
+  background: rgba(159, 207, 139, 0.1);
+}
+
+.f3-notif-icon-protocol {
+  background: rgba(198, 154, 88, 0.12);
+}
+
+.f3-notif-icon-document {
+  background: rgba(59, 130, 246, 0.12);
+}
+
+.f3-notif-icon-quality_gate {
+  background: rgba(168, 85, 247, 0.12);
+}
+
+.f3-notif-icon-regulatory {
+  background: rgba(234, 179, 8, 0.12);
+}
+
+.f3-notif-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.f3-notif-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.f3-notif-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--f3-text-primary, #f4f7f2);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.f3-notif-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--f3-brand-gold, #c69a58);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.f3-notif-time {
+  font-size: 11px;
+  color: var(--f3-text-muted, #75857b);
+  flex-shrink: 0;
+}
+
+.f3-notif-msg {
+  font-size: 13px;
+  color: var(--f3-text-secondary, #aebbb2);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.f3-notif-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--f3-text-muted, #75857b);
+}
+
+.f3-notif-tag {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}

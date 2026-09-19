@@ -1,0 +1,117 @@
+{
+  "study_id": "IEC-DEC-TEST-001",
+  "total_reviews": 10,
+  "updated_at": "2026-09-18T13:01:57.118752Z",
+  "reviews": [
+    {
+      "review_id": "rev_test_dec_1",
+      "study_id": "IEC-DEC-TEST-001",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "approved",
+      "recommendation_label": "Approved",
+      "comments": "Comprehensive study with strong ethical safeguards.",
+      "review_timestamp": "2026-09-18T11:53:25.828111Z"
+    },
+    {
+      "review_id": "rev_test_dec_1",
+      "study_id": "IEC-DEC-TEST-001",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "approved",
+      "recommendation_label": "Approved",
+      "comments": "Comprehensive study with strong ethical safeguards.",
+      "review_timestamp": "2026-09-18T11:54:11.324026Z"
+    },
+    {
+      "review_id": "rev_test_dec_1",
+      "study_id": "IEC-DEC-TEST-001",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "approved",
+      "recommendation_label": "Approved",
+      "comments": "Comprehensive study with strong ethical safeguards.",
+      "review_timestamp": "2026-09-18T11:54:42.067667Z"
+    },
+    {
+      "review_id": "rev_test_dec_1",
+      "study_id": "IEC-DEC-TEST-001",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "approved",
+      "recommendation_label": "Approved",
+      "comments": "Comprehensive study with strong ethical safeguards.",
+      "review_timestamp": "2026-09-18T12:41:47.531682Z"
+    },
+    {
+      "review_id": "rev_test_dec_1",
+      "study_id": "IEC-DEC-TEST-001",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "approved",
+      "recommendation_label": "Approved",
+      "comments": "Comprehensive study with strong ethical safeguards.",
+      "review_timestamp": "2026-09-18T12:47:27.094905Z"
+    },
+    {
+      "review_id": "rev_test_dec_1",
+      "study_id": "IEC-DEC-TEST-001",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "approved",
+      "recommendation_label": "Approved",
+      "comments": "Comprehensive study with strong ethical safeguards.",
+      "review_timestamp": "2026-09-18T12:48:26.078089Z"
+    },
+    {
+      "review_id": "rev_test_dec_1",
+      "study_id": "IEC-DEC-TEST-001",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "approved",
+      "recommendation_label": "Approved",
+      "comments": "Comprehensive study with strong ethical safeguards.",
+      "review_timestamp": "2026-09-18T12:49:18.613358Z"
+    },
+    {
+      "review_id": "rev_test_dec_1",
+      "study_id": "IEC-DEC-TEST-001",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "approved",
+      "recommendation_label": "Approved",
+      "comments": "Comprehensive study with strong ethical safeguards.",
+      "review_timestamp": "2026-09-18T13:00:36.522572Z"
+    },
+    {
+      "review_id": "rev_test_dec_1",
+      "study_id": "IEC-DEC-TEST-001",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "approved",
+      "recommendation_label": "Approved",
+      "comments": "Comprehensive study with strong ethical safeguards.",
+      "review_timestamp": "2026-09-18T13:01:27.396139Z"
+    },
+    {
+      "review_id": "rev_test_dec_1",
+      "study_id": "IEC-DEC-TEST-001",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "approved",
+      "recommendation_label": "Approved",
+      "comments": "Comprehensive study with strong ethical safeguards.",
+      "review_timestamp": "2026-09-18T13:01:57.114450Z"
+    }
+  ]
+}

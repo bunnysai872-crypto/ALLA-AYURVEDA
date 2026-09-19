@@ -1,0 +1,163 @@
+{
+  "study_id": "ALLA-AI-SUM-003",
+  "total_reviews": 13,
+  "updated_at": "2026-09-18T13:01:56.323035Z",
+  "reviews": [
+    {
+      "review_id": "rev_test_c",
+      "study_id": "ALLA-AI-SUM-003",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_modification",
+      "recommendation_label": "Recommend Modification",
+      "comments": "Need additional details on intervention and sample size.",
+      "sections": {},
+      "review_timestamp": "2026-09-08T11:00:00Z"
+    },
+    {
+      "review_id": "rev_test_c",
+      "study_id": "ALLA-AI-SUM-003",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_modification",
+      "recommendation_label": "Recommend Modification",
+      "comments": "Need additional details on intervention and sample size.",
+      "sections": {},
+      "review_timestamp": "2026-09-08T11:00:00Z"
+    },
+    {
+      "review_id": "rev_test_c",
+      "study_id": "ALLA-AI-SUM-003",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_modification",
+      "recommendation_label": "Recommend Modification",
+      "comments": "Need additional details on intervention and sample size.",
+      "sections": {},
+      "review_timestamp": "2026-09-08T11:00:00Z"
+    },
+    {
+      "review_id": "rev_test_c",
+      "study_id": "ALLA-AI-SUM-003",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_modification",
+      "recommendation_label": "Recommend Modification",
+      "comments": "Need additional details on intervention and sample size.",
+      "sections": {},
+      "review_timestamp": "2026-09-08T11:00:00Z"
+    },
+    {
+      "review_id": "rev_test_c",
+      "study_id": "ALLA-AI-SUM-003",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_modification",
+      "recommendation_label": "Recommend Modification",
+      "comments": "Need additional details on intervention and sample size.",
+      "sections": {},
+      "review_timestamp": "2026-09-08T11:00:00Z"
+    },
+    {
+      "review_id": "rev_test_c",
+      "study_id": "ALLA-AI-SUM-003",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_modification",
+      "recommendation_label": "Recommend Modification",
+      "comments": "Need additional details on intervention and sample size.",
+      "sections": {},
+      "review_timestamp": "2026-09-08T11:00:00Z"
+    },
+    {
+      "review_id": "rev_test_c",
+      "study_id": "ALLA-AI-SUM-003",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_modification",
+      "recommendation_label": "Recommend Modification",
+      "comments": "Need additional details on intervention and sample size.",
+      "sections": {},
+      "review_timestamp": "2026-09-08T11:00:00Z"
+    },
+    {
+      "review_id": "rev_test_c",
+      "study_id": "ALLA-AI-SUM-003",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_modification",
+      "recommendation_label": "Recommend Modification",
+      "comments": "Need additional details on intervention and sample size.",
+      "sections": {},
+      "review_timestamp": "2026-09-08T11:00:00Z"
+    },
+    {
+      "review_id": "rev_test_c",
+      "study_id": "ALLA-AI-SUM-003",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_modification",
+      "recommendation_label": "Recommend Modification",
+      "comments": "Need additional details on intervention and sample size.",
+      "sections": {},
+      "review_timestamp": "2026-09-08T11:00:00Z"
+    },
+    {
+      "review_id": "rev_test_c",
+      "study_id": "ALLA-AI-SUM-003",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_modification",
+      "recommendation_label": "Recommend Modification",
+      "comments": "Need additional details on intervention and sample size.",
+      "sections": {},
+      "review_timestamp": "2026-09-08T11:00:00Z"
+    },
+    {
+      "review_id": "rev_test_c",
+      "study_id": "ALLA-AI-SUM-003",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_modification",
+      "recommendation_label": "Recommend Modification",
+      "comments": "Need additional details on intervention and sample size.",
+      "sections": {},
+      "review_timestamp": "2026-09-08T11:00:00Z"
+    },
+    {
+      "review_id": "rev_test_c",
+      "study_id": "ALLA-AI-SUM-003",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_modification",
+      "recommendation_label": "Recommend Modification",
+      "comments": "Need additional details on intervention and sample size.",
+      "sections": {},
+      "review_timestamp": "2026-09-08T11:00:00Z"
+    },
+    {
+      "review_id": "rev_test_c",
+      "study_id": "ALLA-AI-SUM-003",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_modification",
+      "recommendation_label": "Recommend Modification",
+      "comments": "Need additional details on intervention and sample size.",
+      "sections": {},
+      "review_timestamp": "2026-09-08T11:00:00Z"
+    }
+  ]
+}

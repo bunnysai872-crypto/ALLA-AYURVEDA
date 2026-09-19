@@ -1,0 +1,256 @@
+/**
+ * ALLA AYURVEDA — FRONTEND 3
+ * AI Quality Gate Module Styles
+ */
+
+/* Score Header Card */
+.f3-qg-score-hero {
+  background: linear-gradient(135deg, rgba(16, 40, 30, 0.95), rgba(7, 19, 14, 0.98));
+  border: 1px solid var(--f3-border, rgba(159, 207, 139, 0.14));
+  border-radius: var(--f3-radius-lg, 16px);
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.f3-qg-score-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.f3-qg-score-badge-circle {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid var(--f3-border);
+  background: rgba(16, 40, 30, 0.8);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.f3-qg-score-num {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.f3-qg-score-max {
+  font-size: 11px;
+  color: var(--f3-text-muted, #75857b);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.f3-qg-score-info h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  color: var(--f3-text-primary, #f4f7f2);
+}
+
+.f3-qg-score-info p {
+  font-size: 13px;
+  color: var(--f3-text-secondary, #aebbb2);
+  margin: 0 0 10px 0;
+  max-width: 520px;
+  line-height: 1.5;
+}
+
+/* Three Core Category Cards Grid */
+.f3-qg-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.f3-qg-category-card {
+  background: var(--f3-bg-card, #10281e);
+  border: 1px solid var(--f3-border, rgba(159, 207, 139, 0.14));
+  border-radius: var(--f3-radius-md, 10px);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.f3-qg-category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.f3-qg-cat-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.f3-qg-cat-icon {
+  font-size: 20px;
+}
+
+.f3-qg-cat-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--f3-text-primary, #f4f7f2);
+  margin: 0;
+}
+
+.f3-qg-status-pill {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 3px 8px;
+  border-radius: var(--f3-radius-pill, 9999px);
+}
+
+.f3-qg-status-passed {
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.f3-qg-status-warning {
+  background: rgba(234, 179, 8, 0.15);
+  color: #facc15;
+  border: 1px solid rgba(234, 179, 8, 0.3);
+}
+
+.f3-qg-status-issues {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.f3-qg-status-blocked {
+  background: rgba(220, 38, 38, 0.25);
+  color: #fca5a5;
+  border: 1px solid rgba(220, 38, 38, 0.4);
+}
+
+.f3-qg-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.f3-qg-check-item {
+  font-size: 12px;
+  color: var(--f3-text-secondary, #aebbb2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.f3-qg-check-bullet {
+  color: var(--f3-brand-green-light, #9fcf8b);
+}
+
+/* Issues Table & Accordion */
+.f3-qg-issues-card {
+  background: var(--f3-bg-card, #10281e);
+  border: 1px solid var(--f3-border, rgba(159, 207, 139, 0.14));
+  border-radius: var(--f3-radius-lg, 16px);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.f3-qg-issue-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--f3-border-subtle, rgba(255, 255, 255, 0.07));
+  border-radius: var(--f3-radius-md, 10px);
+  padding: 16px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.f3-qg-issue-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.f3-qg-severity-badge {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.f3-qg-sev-critical {
+  background: rgba(220, 38, 38, 0.2);
+  color: #fca5a5;
+  border: 1px solid rgba(220, 38, 38, 0.4);
+}
+
+.f3-qg-sev-high {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.f3-qg-sev-warning {
+  background: rgba(234, 179, 8, 0.15);
+  color: #facc15;
+  border: 1px solid rgba(234, 179, 8, 0.3);
+}
+
+.f3-qg-sev-info {
+  background: rgba(59, 130, 246, 0.15);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.f3-qg-issue-field {
+  font-family: var(--f3-font-mono, monospace);
+  font-size: 12px;
+  color: var(--f3-brand-gold, #c69a58);
+}
+
+.f3-qg-issue-msg {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--f3-text-primary, #f4f7f2);
+  margin: 0;
+}
+
+.f3-qg-recommendation-box {
+  background: rgba(159, 207, 139, 0.05);
+  border-left: 3px solid var(--f3-brand-green-light, #9fcf8b);
+  padding: 8px 12px;
+  border-radius: 0 var(--f3-radius-sm, 6px) var(--f3-radius-sm, 6px) 0;
+  font-size: 12px;
+  color: var(--f3-brand-green-light, #9fcf8b);
+}
+
+/* Deterministic AI Disclosure Banner */
+.f3-qg-disclosure-banner {
+  background: rgba(198, 154, 88, 0.08);
+  border: 1px solid rgba(198, 154, 88, 0.25);
+  border-radius: var(--f3-radius-md, 10px);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  color: var(--f3-brand-gold-light, #f4ead8);
+}

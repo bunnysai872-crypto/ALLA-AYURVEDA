@@ -1,0 +1,1259 @@
+/* ==========================================================================
+   ALLA AYURVEDA — CLINICAL RESEARCH LANDING PAGE STYLES
+   Design System: Modern Medical / Clinical Research Aesthetics
+   ========================================================================== */
+
+:root {
+  --med-primary: #0d4734;
+  --med-primary-dark: #072a1e;
+  --med-primary-light: #16654e;
+  --med-primary-faint: rgba(13, 71, 52, 0.05);
+  --med-primary-surface: rgba(13, 71, 52, 0.08);
+
+  --med-teal: #0d9488;
+  --med-teal-light: #f0fdfa;
+  --med-teal-border: rgba(13, 148, 136, 0.2);
+
+  --med-bg: #ffffff;
+  --med-bg-subtle: #f8faf9;
+  --med-bg-alt: #f1f5f3;
+
+  --med-text-primary: #0f1e18;
+  --med-text-secondary: #485c54;
+  --med-text-muted: #6f8078;
+  --med-text-inverse: #ffffff;
+
+  --med-border: #e2e8e5;
+  --med-border-subtle: #edf1ef;
+  --med-border-focus: rgba(13, 71, 52, 0.35);
+
+  --med-radius-sm: 8px;
+  --med-radius-md: 12px;
+  --med-radius-lg: 18px;
+  --med-radius-full: 9999px;
+
+  --med-shadow-xs: 0 1px 3px rgba(15, 30, 24, 0.04);
+  --med-shadow-sm: 0 4px 12px rgba(15, 30, 24, 0.05);
+  --med-shadow-md: 0 10px 30px -4px rgba(13, 71, 52, 0.08);
+  --med-shadow-lg: 0 20px 48px -8px rgba(13, 71, 52, 0.12);
+
+  --med-font-sans: 'Plus Jakarta Sans', 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Base Wrapper */
+.alp-landing {
+  font-family: var(--med-font-sans);
+  color: var(--med-text-primary);
+  background-color: var(--med-bg);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.alp-landing * {
+  box-sizing: border-box;
+}
+
+.alp-container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==========================================================================
+   1. NAVBAR
+   ========================================================================== */
+.alp-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--med-border);
+  transition: all 0.25s ease;
+}
+
+.alp-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+
+/* Logo */
+.alp-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.alp-brand-emblem {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--med-radius-md);
+  background: linear-gradient(135deg, var(--med-primary) 0%, var(--med-primary-light) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--med-text-inverse);
+  box-shadow: 0 4px 12px rgba(13, 71, 52, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+}
+
+.alp-brand-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.alp-brand-name {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--med-primary);
+  line-height: 1.15;
+}
+
+.alp-brand-name span {
+  color: var(--med-teal);
+  font-weight: 700;
+}
+
+.alp-brand-sub {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--med-text-muted);
+}
+
+/* Nav Links */
+.alp-nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.alp-nav-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--med-text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  position: relative;
+  padding: 6px 0;
+}
+
+.alp-nav-link:hover {
+  color: var(--med-primary);
+}
+
+.alp-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--med-primary);
+  border-radius: 2px;
+  transition: width 0.2s ease;
+}
+
+.alp-nav-link:hover::after {
+  width: 100%;
+}
+
+/* Login Button */
+.alp-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.alp-btn-login {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--med-primary);
+  color: var(--med-text-inverse);
+  padding: 10px 22px;
+  border-radius: var(--med-radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid var(--med-primary-dark);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(13, 71, 52, 0.15);
+}
+
+.alp-btn-login:hover {
+  background: var(--med-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(13, 71, 52, 0.25);
+}
+
+.alp-mobile-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--med-border);
+  padding: 8px;
+  border-radius: var(--med-radius-sm);
+  color: var(--med-text-primary);
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   2. HERO SECTION
+   ========================================================================== */
+.alp-hero {
+  position: relative;
+  padding: 72px 0 88px;
+  background: radial-gradient(1200px circle at 50% -100px, rgba(13, 71, 52, 0.05), transparent 70%),
+              linear-gradient(180deg, #ffffff 0%, var(--med-bg-subtle) 100%);
+  border-bottom: 1px solid var(--med-border);
+  overflow: hidden;
+}
+
+.alp-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.alp-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--med-teal-light);
+  border: 1px solid var(--med-teal-border);
+  color: var(--med-teal);
+  padding: 6px 14px;
+  border-radius: var(--med-radius-full);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.alp-badge-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--med-teal);
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.alp-hero-title {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.16;
+  letter-spacing: -0.03em;
+  color: var(--med-text-primary);
+  margin: 0 0 22px;
+}
+
+.alp-hero-title .alp-accent {
+  color: var(--med-primary);
+  position: relative;
+  display: inline-block;
+}
+
+.alp-hero-desc {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--med-text-secondary);
+  margin: 0 0 36px;
+  max-width: 580px;
+}
+
+.alp-hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 44px;
+}
+
+.alp-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--med-primary);
+  color: var(--med-text-inverse);
+  padding: 14px 28px;
+  border-radius: var(--med-radius-md);
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(13, 71, 52, 0.22);
+}
+
+.alp-btn-primary:hover {
+  background: var(--med-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(13, 71, 52, 0.28);
+}
+
+.alp-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: var(--med-primary);
+  padding: 14px 26px;
+  border-radius: var(--med-radius-md);
+  font-size: 15px;
+  font-weight: 700;
+  border: 1px solid var(--med-border);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--med-shadow-xs);
+}
+
+.alp-btn-secondary:hover {
+  background: var(--med-bg-subtle);
+  border-color: var(--med-border-focus);
+  transform: translateY(-2px);
+  box-shadow: var(--med-shadow-sm);
+}
+
+.alp-hero-metrics {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--med-border);
+}
+
+.alp-metric-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.alp-metric-val {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--med-primary);
+  letter-spacing: -0.02em;
+}
+
+.alp-metric-lbl {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--med-text-muted);
+}
+
+/* Hero Visual Canvas */
+.alp-hero-visual-frame {
+  position: relative;
+}
+
+.alp-hero-img-wrap {
+  position: relative;
+  border-radius: var(--med-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--med-shadow-lg);
+  border: 1px solid var(--med-border);
+  background: #ffffff;
+}
+
+.alp-hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.alp-hero-img-wrap:hover .alp-hero-img {
+  transform: scale(1.02);
+}
+
+/* Floating Clinical Telemetry Cards */
+.alp-floating-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--med-border);
+  border-radius: var(--med-radius-md);
+  padding: 12px 16px;
+  box-shadow: var(--med-shadow-md);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 10;
+  animation: float-gentle 4s ease-in-out infinite;
+}
+
+.alp-float-1 {
+  top: -18px;
+  right: -18px;
+  animation-delay: 0s;
+}
+
+.alp-float-2 {
+  bottom: -22px;
+  left: -20px;
+  animation-delay: 2s;
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.alp-floating-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--med-radius-sm);
+  background: var(--med-teal-light);
+  color: var(--med-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.alp-floating-icon.success {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.alp-floating-text strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--med-text-primary);
+  line-height: 1.2;
+}
+
+.alp-floating-text small {
+  display: block;
+  font-size: 11px;
+  color: var(--med-text-muted);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   3. TRUST / PLATFORM STRIP
+   ========================================================================== */
+.alp-trust-strip {
+  background: #ffffff;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--med-border);
+}
+
+.alp-strip-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.alp-strip-title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--med-text-muted);
+}
+
+.alp-strip-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+
+.alp-strip-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 16px 12px;
+  border-radius: var(--med-radius-md);
+  background: var(--med-bg-subtle);
+  border: 1px solid var(--med-border-subtle);
+  transition: all 0.2s ease;
+}
+
+.alp-strip-card:hover {
+  background: #ffffff;
+  border-color: var(--med-border-focus);
+  transform: translateY(-2px);
+  box-shadow: var(--med-shadow-sm);
+}
+
+.alp-strip-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid var(--med-border);
+  color: var(--med-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  box-shadow: var(--med-shadow-xs);
+  transition: all 0.2s ease;
+}
+
+.alp-strip-card:hover .alp-strip-icon-box {
+  background: var(--med-primary);
+  color: #ffffff;
+  border-color: var(--med-primary);
+}
+
+.alp-strip-card h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--med-text-primary);
+  margin: 0 0 4px;
+}
+
+.alp-strip-card p {
+  font-size: 11px;
+  color: var(--med-text-muted);
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* ==========================================================================
+   4. ABOUT / PLATFORM SECTION
+   ========================================================================== */
+.alp-about-section {
+  padding: 96px 0;
+  background: #ffffff;
+  border-bottom: 1px solid var(--med-border);
+}
+
+.alp-about-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.alp-about-img-wrap {
+  position: relative;
+  border-radius: var(--med-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--med-shadow-lg);
+  border: 1px solid var(--med-border);
+}
+
+.alp-about-img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  display: block;
+}
+
+.alp-about-img-badge {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(13, 71, 52, 0.92);
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: var(--med-radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.alp-section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--med-teal);
+  margin-bottom: 12px;
+}
+
+.alp-section-h2 {
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--med-text-primary);
+  margin: 0 0 20px;
+}
+
+.alp-section-lead {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--med-text-secondary);
+  margin: 0 0 28px;
+}
+
+.alp-about-features {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.alp-about-feat-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.alp-feat-check {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--med-teal-light);
+  color: var(--med-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.alp-about-feat-item strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--med-text-primary);
+  margin-bottom: 3px;
+}
+
+.alp-about-feat-item p {
+  font-size: 13px;
+  color: var(--med-text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   5. CLINICAL RESEARCH WORKFLOW (10 STEPS)
+   ========================================================================== */
+.alp-workflow-section {
+  padding: 96px 0;
+  background: var(--med-bg-subtle);
+  border-bottom: 1px solid var(--med-border);
+}
+
+.alp-section-header-center {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 56px;
+}
+
+.alp-section-header-center .alp-section-h2 {
+  margin-bottom: 14px;
+}
+
+.alp-section-header-center p {
+  font-size: 16px;
+  color: var(--med-text-secondary);
+  margin: 0;
+}
+
+.alp-workflow-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  position: relative;
+}
+
+.alp-workflow-step {
+  background: #ffffff;
+  border: 1px solid var(--med-border);
+  border-radius: var(--med-radius-md);
+  padding: 22px 18px;
+  position: relative;
+  transition: all 0.25s ease;
+  box-shadow: var(--med-shadow-xs);
+  display: flex;
+  flex-direction: column;
+}
+
+.alp-workflow-step:hover {
+  border-color: var(--med-primary);
+  transform: translateY(-3px);
+  box-shadow: var(--med-shadow-md);
+}
+
+.alp-step-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.alp-step-num {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--med-teal);
+  background: var(--med-teal-light);
+  padding: 3px 8px;
+  border-radius: var(--med-radius-sm);
+}
+
+.alp-step-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--med-radius-sm);
+  background: var(--med-primary-faint);
+  color: var(--med-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alp-workflow-step h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--med-text-primary);
+  margin: 0 0 6px;
+}
+
+.alp-workflow-step p {
+  font-size: 12px;
+  color: var(--med-text-muted);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.alp-step-indicator-bar {
+  margin-top: 14px;
+  height: 3px;
+  background: var(--med-border-subtle);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.alp-step-indicator-bar span {
+  display: block;
+  height: 100%;
+  background: var(--med-primary);
+  width: 30%;
+  transition: width 0.3s ease;
+}
+
+.alp-workflow-step:hover .alp-step-indicator-bar span {
+  width: 100%;
+}
+
+/* ==========================================================================
+   6. PLATFORM FEATURES
+   ========================================================================== */
+.alp-features-section {
+  padding: 96px 0;
+  background: #ffffff;
+  border-bottom: 1px solid var(--med-border);
+}
+
+.alp-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+.alp-feature-card {
+  background: #ffffff;
+  border: 1px solid var(--med-border);
+  border-radius: var(--med-radius-lg);
+  padding: 32px 28px;
+  transition: all 0.25s ease;
+  box-shadow: var(--med-shadow-xs);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.alp-feature-card:hover {
+  border-color: var(--med-border-focus);
+  transform: translateY(-4px);
+  box-shadow: var(--med-shadow-lg);
+}
+
+.alp-feat-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--med-radius-md);
+  background: var(--med-primary-surface);
+  color: var(--med-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: all 0.2s ease;
+}
+
+.alp-feature-card:hover .alp-feat-icon-box {
+  background: var(--med-primary);
+  color: #ffffff;
+}
+
+.alp-feature-card h3 {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--med-text-primary);
+  margin: 0 0 10px;
+}
+
+.alp-feature-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--med-text-secondary);
+  margin: 0 0 20px;
+  flex-grow: 1;
+}
+
+.alp-feat-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--med-teal);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   7. AYURVEDA + MODERN RESEARCH SECTION
+   ========================================================================== */
+.alp-ayur-research-section {
+  padding: 96px 0;
+  background: linear-gradient(180deg, var(--med-bg-subtle) 0%, #ffffff 100%);
+  border-bottom: 1px solid var(--med-border);
+}
+
+.alp-ayur-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.alp-ayur-pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.alp-pillar-card {
+  background: #ffffff;
+  border: 1px solid var(--med-border);
+  border-radius: var(--med-radius-md);
+  padding: 18px 16px;
+  box-shadow: var(--med-shadow-xs);
+  transition: all 0.2s ease;
+}
+
+.alp-pillar-card:hover {
+  border-color: var(--med-primary);
+  box-shadow: var(--med-shadow-sm);
+}
+
+.alp-pillar-card h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--med-primary);
+  margin: 0 0 6px;
+}
+
+.alp-pillar-card p {
+  font-size: 12px;
+  color: var(--med-text-secondary);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.alp-ayur-visual-frame {
+  position: relative;
+  border-radius: var(--med-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--med-shadow-lg);
+  border: 1px solid var(--med-border);
+}
+
+.alp-ayur-img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ==========================================================================
+   8. SECURITY / GOVERNANCE SECTION
+   ========================================================================== */
+.alp-security-section {
+  padding: 96px 0;
+  background: #ffffff;
+  border-bottom: 1px solid var(--med-border);
+}
+
+.alp-security-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.alp-security-card {
+  background: var(--med-bg-subtle);
+  border: 1px solid var(--med-border);
+  border-radius: var(--med-radius-md);
+  padding: 24px 22px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: all 0.2s ease;
+}
+
+.alp-security-card:hover {
+  background: #ffffff;
+  border-color: var(--med-border-focus);
+  transform: translateY(-2px);
+  box-shadow: var(--med-shadow-sm);
+}
+
+.alp-security-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--med-radius-sm);
+  background: #ffffff;
+  border: 1px solid var(--med-border);
+  color: var(--med-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--med-shadow-xs);
+}
+
+.alp-security-content h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--med-text-primary);
+  margin: 0 0 6px;
+}
+
+.alp-security-content p {
+  font-size: 13px;
+  color: var(--med-text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   9. FINAL CTA SECTION
+   ========================================================================== */
+.alp-cta-section {
+  padding: 88px 0;
+  background: linear-gradient(135deg, var(--med-primary-dark) 0%, var(--med-primary) 100%);
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.alp-cta-box {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.alp-cta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #e6f7f2;
+  padding: 6px 16px;
+  border-radius: var(--med-radius-full);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.alp-cta-title {
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 20px;
+}
+
+.alp-cta-desc {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 36px;
+}
+
+.alp-btn-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  color: var(--med-primary-dark);
+  padding: 16px 36px;
+  border-radius: var(--med-radius-md);
+  font-size: 16px;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.alp-btn-cta-primary:hover {
+  background: #f0fdf9;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.alp-cta-subnote {
+  margin-top: 18px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   10. FOOTER
+   ========================================================================== */
+.alp-footer {
+  background: #091a14;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 72px 0 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.alp-footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(4, 1fr);
+  gap: 40px;
+  margin-bottom: 56px;
+}
+
+.alp-footer-brand-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.alp-footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.alp-footer-logo-emblem {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--med-radius-sm);
+  background: var(--med-teal);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 17px;
+}
+
+.alp-footer-logo-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.alp-footer-logo-title span {
+  color: var(--med-teal);
+}
+
+.alp-footer-brand-p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0 0 20px;
+  max-width: 320px;
+}
+
+.alp-footer-col h5 {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  margin: 0 0 18px;
+}
+
+.alp-footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.alp-footer-col a {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.alp-footer-col a:hover {
+  color: #ffffff;
+}
+
+.alp-footer-bottom {
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.alp-footer-legal-links {
+  display: flex;
+  gap: 20px;
+}
+
+.alp-footer-legal-links a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.alp-footer-legal-links a:hover {
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1080px) {
+  .alp-hero-grid,
+  .alp-about-grid,
+  .alp-ayur-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .alp-workflow-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .alp-strip-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .alp-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .alp-hero-title {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .alp-nav-menu {
+    display: none;
+    position: absolute;
+    top: 76px;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border-bottom: 1px solid var(--med-border);
+    flex-direction: column;
+    padding: 24px;
+    gap: 16px;
+    box-shadow: var(--med-shadow-md);
+  }
+
+  .alp-nav-menu.open {
+    display: flex;
+  }
+
+  .alp-mobile-toggle {
+    display: block;
+  }
+
+  .alp-hero {
+    padding: 44px 0 60px;
+  }
+
+  .alp-hero-title {
+    font-size: 32px;
+  }
+
+  .alp-hero-desc {
+    font-size: 16px;
+  }
+
+  .alp-hero-cta-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .alp-strip-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .alp-workflow-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .alp-security-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .alp-ayur-pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .alp-floating-card {
+    position: static;
+    margin-top: 12px;
+  }
+
+  .alp-footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .alp-footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}

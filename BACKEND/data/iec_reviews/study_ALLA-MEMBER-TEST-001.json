@@ -1,0 +1,407 @@
+{
+  "study_id": "ALLA-MEMBER-TEST-001",
+  "total_reviews": 16,
+  "updated_at": "2026-09-18T13:01:57.609625Z",
+  "reviews": [
+    {
+      "review_id": "rev_15_14_1788846270",
+      "study_id": "ALLA-MEMBER-TEST-001",
+      "study_db_id": 15,
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The clinical protocol adheres to classical Ayurvedic standards with adequate safety monitoring.",
+      "sections": {
+        "safety_monitoring": {
+          "notes": "Liver/renal tests specified.",
+          "rating": "satisfactory"
+        },
+        "scientific_validity": {
+          "notes": "Solid Ayurvedic hypothesis.",
+          "rating": "satisfactory"
+        }
+      },
+      "reviewer_notes": "Recommend accelerated ethics committee consensus.",
+      "review_timestamp": "2026-09-08T11:14:30.914586Z",
+      "previous_status": "under_iec_review",
+      "resulting_status": "iec_recommendation_submitted"
+    },
+    {
+      "review_id": "rev_15_14_1788846418",
+      "study_id": "ALLA-MEMBER-TEST-001",
+      "study_db_id": 15,
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The clinical protocol adheres to classical Ayurvedic standards with adequate safety monitoring.",
+      "sections": {
+        "safety_monitoring": {
+          "notes": "Liver/renal tests specified.",
+          "rating": "satisfactory"
+        },
+        "scientific_validity": {
+          "notes": "Solid Ayurvedic hypothesis.",
+          "rating": "satisfactory"
+        }
+      },
+      "reviewer_notes": "Recommend accelerated ethics committee consensus.",
+      "review_timestamp": "2026-09-08T11:16:58.652313Z",
+      "previous_status": "under_iec_review",
+      "resulting_status": "iec_recommendation_submitted"
+    },
+    {
+      "review_id": "rev_15_14_1788846803",
+      "study_id": "ALLA-MEMBER-TEST-001",
+      "study_db_id": 15,
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The clinical protocol adheres to classical Ayurvedic standards with adequate safety monitoring.",
+      "sections": {
+        "safety_monitoring": {
+          "notes": "Liver/renal tests specified.",
+          "rating": "satisfactory"
+        },
+        "scientific_validity": {
+          "notes": "Solid Ayurvedic hypothesis.",
+          "rating": "satisfactory"
+        }
+      },
+      "reviewer_notes": "Recommend accelerated ethics committee consensus.",
+      "review_timestamp": "2026-09-08T11:23:23.012281Z",
+      "previous_status": "under_iec_review",
+      "resulting_status": "iec_recommendation_submitted"
+    },
+    {
+      "review_id": "rev_15_14_1788846816",
+      "study_id": "ALLA-MEMBER-TEST-001",
+      "study_db_id": 15,
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The clinical protocol adheres to classical Ayurvedic standards with adequate safety monitoring.",
+      "sections": {
+        "safety_monitoring": {
+          "notes": "Liver/renal tests specified.",
+          "rating": "satisfactory"
+        },
+        "scientific_validity": {
+          "notes": "Solid Ayurvedic hypothesis.",
+          "rating": "satisfactory"
+        }
+      },
+      "reviewer_notes": "Recommend accelerated ethics committee consensus.",
+      "review_timestamp": "2026-09-08T11:23:36.366439Z",
+      "previous_status": "under_iec_review",
+      "resulting_status": "iec_recommendation_submitted"
+    },
+    {
+      "review_id": "rev_15_14_1788846831",
+      "study_id": "ALLA-MEMBER-TEST-001",
+      "study_db_id": 15,
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The clinical protocol adheres to classical Ayurvedic standards with adequate safety monitoring.",
+      "sections": {
+        "safety_monitoring": {
+          "notes": "Liver/renal tests specified.",
+          "rating": "satisfactory"
+        },
+        "scientific_validity": {
+          "notes": "Solid Ayurvedic hypothesis.",
+          "rating": "satisfactory"
+        }
+      },
+      "reviewer_notes": "Recommend accelerated ethics committee consensus.",
+      "review_timestamp": "2026-09-08T11:23:51.746143Z",
+      "previous_status": "under_iec_review",
+      "resulting_status": "iec_recommendation_submitted"
+    },
+    {
+      "review_id": "rev_15_14_1788846904",
+      "study_id": "ALLA-MEMBER-TEST-001",
+      "study_db_id": 15,
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The clinical protocol adheres to classical Ayurvedic standards with adequate safety monitoring.",
+      "sections": {
+        "safety_monitoring": {
+          "notes": "Liver/renal tests specified.",
+          "rating": "satisfactory"
+        },
+        "scientific_validity": {
+          "notes": "Solid Ayurvedic hypothesis.",
+          "rating": "satisfactory"
+        }
+      },
+      "reviewer_notes": "Recommend accelerated ethics committee consensus.",
+      "review_timestamp": "2026-09-08T11:25:04.950164Z",
+      "previous_status": "under_iec_review",
+      "resulting_status": "iec_recommendation_submitted"
+    },
+    {
+      "review_id": "rev_15_14_1789710406",
+      "study_id": "ALLA-MEMBER-TEST-001",
+      "study_db_id": 15,
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The clinical protocol adheres to classical Ayurvedic standards with adequate safety monitoring.",
+      "sections": {
+        "safety_monitoring": {
+          "notes": "Liver/renal tests specified.",
+          "rating": "satisfactory"
+        },
+        "scientific_validity": {
+          "notes": "Solid Ayurvedic hypothesis.",
+          "rating": "satisfactory"
+        }
+      },
+      "reviewer_notes": "Recommend accelerated ethics committee consensus.",
+      "review_timestamp": "2026-09-18T11:16:46.274215Z",
+      "previous_status": "under_iec_review",
+      "resulting_status": "iec_recommendation_submitted"
+    },
+    {
+      "review_id": "rev_15_14_1789711471",
+      "study_id": "ALLA-MEMBER-TEST-001",
+      "study_db_id": 15,
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The clinical protocol adheres to classical Ayurvedic standards with adequate safety monitoring.",
+      "sections": {
+        "safety_monitoring": {
+          "notes": "Liver/renal tests specified.",
+          "rating": "satisfactory"
+        },
+        "scientific_validity": {
+          "notes": "Solid Ayurvedic hypothesis.",
+          "rating": "satisfactory"
+        }
+      },
+      "reviewer_notes": "Recommend accelerated ethics committee consensus.",
+      "review_timestamp": "2026-09-18T11:34:31.677459Z",
+      "previous_status": "under_iec_review",
+      "resulting_status": "iec_recommendation_submitted"
+    },
+    {
+      "review_id": "rev_15_14_1789712689",
+      "study_id": "ALLA-MEMBER-TEST-001",
+      "study_db_id": 15,
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The clinical protocol adheres to classical Ayurvedic standards with adequate safety monitoring.",
+      "sections": {
+        "safety_monitoring": {
+          "notes": "Liver/renal tests specified.",
+          "rating": "satisfactory"
+        },
+        "scientific_validity": {
+          "notes": "Solid Ayurvedic hypothesis.",
+          "rating": "satisfactory"
+        }
+      },
+      "reviewer_notes": "Recommend accelerated ethics committee consensus.",
+      "review_timestamp": "2026-09-18T11:54:49.909667Z",
+      "previous_status": "under_iec_review",
+      "resulting_status": "iec_recommendation_submitted"
+    },
+    {
+      "review_id": "rev_15_14_1789715508",
+      "study_id": "ALLA-MEMBER-TEST-001",
+      "study_db_id": 15,
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The clinical protocol adheres to classical Ayurvedic standards with adequate safety monitoring.",
+      "sections": {
+        "safety_monitoring": {
+          "notes": "Liver/renal tests specified.",
+          "rating": "satisfactory"
+        },
+        "scientific_validity": {
+          "notes": "Solid Ayurvedic hypothesis.",
+          "rating": "satisfactory"
+        }
+      },
+      "reviewer_notes": "Recommend accelerated ethics committee consensus.",
+      "review_timestamp": "2026-09-18T12:41:48.019929Z",
+      "previous_status": "under_iec_review",
+      "resulting_status": "iec_recommendation_submitted"
+    },
+    {
+      "review_id": "rev_15_14_1789715847",
+      "study_id": "ALLA-MEMBER-TEST-001",
+      "study_db_id": 15,
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The clinical protocol adheres to classical Ayurvedic standards with adequate safety monitoring.",
+      "sections": {
+        "safety_monitoring": {
+          "notes": "Liver/renal tests specified.",
+          "rating": "satisfactory"
+        },
+        "scientific_validity": {
+          "notes": "Solid Ayurvedic hypothesis.",
+          "rating": "satisfactory"
+        }
+      },
+      "reviewer_notes": "Recommend accelerated ethics committee consensus.",
+      "review_timestamp": "2026-09-18T12:47:27.505747Z",
+      "previous_status": "under_iec_review",
+      "resulting_status": "iec_recommendation_submitted"
+    },
+    {
+      "review_id": "rev_15_14_1789715906",
+      "study_id": "ALLA-MEMBER-TEST-001",
+      "study_db_id": 15,
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The clinical protocol adheres to classical Ayurvedic standards with adequate safety monitoring.",
+      "sections": {
+        "safety_monitoring": {
+          "notes": "Liver/renal tests specified.",
+          "rating": "satisfactory"
+        },
+        "scientific_validity": {
+          "notes": "Solid Ayurvedic hypothesis.",
+          "rating": "satisfactory"
+        }
+      },
+      "reviewer_notes": "Recommend accelerated ethics committee consensus.",
+      "review_timestamp": "2026-09-18T12:48:26.574474Z",
+      "previous_status": "under_iec_review",
+      "resulting_status": "iec_recommendation_submitted"
+    },
+    {
+      "review_id": "rev_15_14_1789715959",
+      "study_id": "ALLA-MEMBER-TEST-001",
+      "study_db_id": 15,
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The clinical protocol adheres to classical Ayurvedic standards with adequate safety monitoring.",
+      "sections": {
+        "safety_monitoring": {
+          "notes": "Liver/renal tests specified.",
+          "rating": "satisfactory"
+        },
+        "scientific_validity": {
+          "notes": "Solid Ayurvedic hypothesis.",
+          "rating": "satisfactory"
+        }
+      },
+      "reviewer_notes": "Recommend accelerated ethics committee consensus.",
+      "review_timestamp": "2026-09-18T12:49:19.025102Z",
+      "previous_status": "under_iec_review",
+      "resulting_status": "iec_recommendation_submitted"
+    },
+    {
+      "review_id": "rev_15_14_1789716636",
+      "study_id": "ALLA-MEMBER-TEST-001",
+      "study_db_id": 15,
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The clinical protocol adheres to classical Ayurvedic standards with adequate safety monitoring.",
+      "sections": {
+        "safety_monitoring": {
+          "notes": "Liver/renal tests specified.",
+          "rating": "satisfactory"
+        },
+        "scientific_validity": {
+          "notes": "Solid Ayurvedic hypothesis.",
+          "rating": "satisfactory"
+        }
+      },
+      "reviewer_notes": "Recommend accelerated ethics committee consensus.",
+      "review_timestamp": "2026-09-18T13:00:36.880504Z",
+      "previous_status": "under_iec_review",
+      "resulting_status": "iec_recommendation_submitted"
+    },
+    {
+      "review_id": "rev_15_14_1789716687",
+      "study_id": "ALLA-MEMBER-TEST-001",
+      "study_db_id": 15,
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The clinical protocol adheres to classical Ayurvedic standards with adequate safety monitoring.",
+      "sections": {
+        "safety_monitoring": {
+          "notes": "Liver/renal tests specified.",
+          "rating": "satisfactory"
+        },
+        "scientific_validity": {
+          "notes": "Solid Ayurvedic hypothesis.",
+          "rating": "satisfactory"
+        }
+      },
+      "reviewer_notes": "Recommend accelerated ethics committee consensus.",
+      "review_timestamp": "2026-09-18T13:01:27.743583Z",
+      "previous_status": "under_iec_review",
+      "resulting_status": "iec_recommendation_submitted"
+    },
+    {
+      "review_id": "rev_15_14_1789716717",
+      "study_id": "ALLA-MEMBER-TEST-001",
+      "study_db_id": 15,
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "recommend_approval",
+      "recommendation_label": "Recommend Approval",
+      "comments": "The clinical protocol adheres to classical Ayurvedic standards with adequate safety monitoring.",
+      "sections": {
+        "safety_monitoring": {
+          "notes": "Liver/renal tests specified.",
+          "rating": "satisfactory"
+        },
+        "scientific_validity": {
+          "notes": "Solid Ayurvedic hypothesis.",
+          "rating": "satisfactory"
+        }
+      },
+      "reviewer_notes": "Recommend accelerated ethics committee consensus.",
+      "review_timestamp": "2026-09-18T13:01:57.608453Z",
+      "previous_status": "under_iec_review",
+      "resulting_status": "iec_recommendation_submitted"
+    }
+  ]
+}

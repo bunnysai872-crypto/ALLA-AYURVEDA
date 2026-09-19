@@ -1,0 +1,19 @@
+{
+  "study_id": "ALLA-E2E-2026-001",
+  "total_reviews": 1,
+  "updated_at": "2026-09-18T13:01:56.779300Z",
+  "reviews": [
+    {
+      "review_id": "rev_27_23_1",
+      "study_id": "ALLA-E2E-2026-001",
+      "reviewer": {
+        "id": 23,
+        "full_name": "Dr. E2E Member",
+        "role": "iec_member"
+      },
+      "recommendation": "approve",
+      "overall_comments": "Trial design adheres to ICMR and Ayurvedic ethics standards.",
+      "review_timestamp": "2026-09-18T13:01:56.779300Z"
+    }
+  ]
+}

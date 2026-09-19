@@ -1,0 +1,117 @@
+{
+  "study_id": "IEC-DEC-TEST-003",
+  "total_reviews": 10,
+  "updated_at": "2026-09-18T13:01:57.142936Z",
+  "reviews": [
+    {
+      "review_id": "rev_test_dec_3",
+      "study_id": "IEC-DEC-TEST-003",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "rejected",
+      "recommendation_label": "Not Approved",
+      "comments": "Significant safety and toxicological hazards identified.",
+      "review_timestamp": "2026-09-18T11:53:25.867620Z"
+    },
+    {
+      "review_id": "rev_test_dec_3",
+      "study_id": "IEC-DEC-TEST-003",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "rejected",
+      "recommendation_label": "Not Approved",
+      "comments": "Significant safety and toxicological hazards identified.",
+      "review_timestamp": "2026-09-18T11:54:11.340176Z"
+    },
+    {
+      "review_id": "rev_test_dec_3",
+      "study_id": "IEC-DEC-TEST-003",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "rejected",
+      "recommendation_label": "Not Approved",
+      "comments": "Significant safety and toxicological hazards identified.",
+      "review_timestamp": "2026-09-18T11:54:42.096708Z"
+    },
+    {
+      "review_id": "rev_test_dec_3",
+      "study_id": "IEC-DEC-TEST-003",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "rejected",
+      "recommendation_label": "Not Approved",
+      "comments": "Significant safety and toxicological hazards identified.",
+      "review_timestamp": "2026-09-18T12:41:47.568459Z"
+    },
+    {
+      "review_id": "rev_test_dec_3",
+      "study_id": "IEC-DEC-TEST-003",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "rejected",
+      "recommendation_label": "Not Approved",
+      "comments": "Significant safety and toxicological hazards identified.",
+      "review_timestamp": "2026-09-18T12:47:27.126489Z"
+    },
+    {
+      "review_id": "rev_test_dec_3",
+      "study_id": "IEC-DEC-TEST-003",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "rejected",
+      "recommendation_label": "Not Approved",
+      "comments": "Significant safety and toxicological hazards identified.",
+      "review_timestamp": "2026-09-18T12:48:26.110836Z"
+    },
+    {
+      "review_id": "rev_test_dec_3",
+      "study_id": "IEC-DEC-TEST-003",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "rejected",
+      "recommendation_label": "Not Approved",
+      "comments": "Significant safety and toxicological hazards identified.",
+      "review_timestamp": "2026-09-18T12:49:18.645952Z"
+    },
+    {
+      "review_id": "rev_test_dec_3",
+      "study_id": "IEC-DEC-TEST-003",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "rejected",
+      "recommendation_label": "Not Approved",
+      "comments": "Significant safety and toxicological hazards identified.",
+      "review_timestamp": "2026-09-18T13:00:36.550776Z"
+    },
+    {
+      "review_id": "rev_test_dec_3",
+      "study_id": "IEC-DEC-TEST-003",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "rejected",
+      "recommendation_label": "Not Approved",
+      "comments": "Significant safety and toxicological hazards identified.",
+      "review_timestamp": "2026-09-18T13:01:27.422859Z"
+    },
+    {
+      "review_id": "rev_test_dec_3",
+      "study_id": "IEC-DEC-TEST-003",
+      "reviewer_id": 14,
+      "reviewer_name": "IEC Member One",
+      "reviewer_email": "non_researcher@test.com",
+      "recommendation": "rejected",
+      "recommendation_label": "Not Approved",
+      "comments": "Significant safety and toxicological hazards identified.",
+      "review_timestamp": "2026-09-18T13:01:57.141777Z"
+    }
+  ]
+}
