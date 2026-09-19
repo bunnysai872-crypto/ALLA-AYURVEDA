@@ -56,7 +56,10 @@ def create_app():
     jwt.init_app(app)
     register_jwt_handlers(jwt)
 
-    CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
+    cors_origins = Config.CORS_ORIGINS
+    if cors_origins and "," in cors_origins:
+        cors_origins = [o.strip() for o in cors_origins.split(",") if o.strip()]
+    CORS(app, resources={r"/*": {"origins": cors_origins}}, supports_credentials=True)
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(documents_bp)
@@ -84,6 +87,21 @@ def create_app():
             "message": "ALLA Ayurveda Backend is running"
         }
 
+    @app.route("/api/health")
+    def health_check():
+        db_status = "connected"
+        http_code = 200
+        try:
+            db.session.execute(db.text("SELECT 1"))
+        except Exception as e:
+            db_status = f"unhealthy: {str(e)}"
+            http_code = 503
+        return jsonify({
+            "success": http_code == 200,
+            "status": "healthy" if http_code == 200 else "degraded",
+            "database": db_status
+        }), http_code
+
     return app
 
 
@@ -102,7 +120,10 @@ from models import (
 )
 
 with app.app_context():
-    db.create_all()
+    try:
+        db.create_all()
+    except Exception as e:
+        print(f"[ALLA Ayurveda Startup] Note: Could not auto-create tables on startup: {e}")
 
 
 

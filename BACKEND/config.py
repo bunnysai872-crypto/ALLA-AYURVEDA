@@ -7,13 +7,19 @@ load_dotenv()
 
 
 class Config:
-    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL")
+    _raw_db_url = os.getenv("DATABASE_URL", "mysql+pymysql://root:root@localhost/alla_ayurveda")
+    if _raw_db_url and _raw_db_url.startswith("mysql://"):
+        _raw_db_url = _raw_db_url.replace("mysql://", "mysql+pymysql://", 1)
+
+    SQLALCHEMY_DATABASE_URI = _raw_db_url
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-    JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")
+    JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", "change-this-to-a-long-random-secret")
     JWT_ACCESS_TOKEN_EXPIRES = timedelta(
         hours=int(os.getenv("JWT_ACCESS_TOKEN_EXPIRES_HOURS", 24))
     )
+
+    CORS_ORIGINS = os.getenv("CORS_ORIGINS", "*")
 
     # Document Upload & Storage Settings
     BASE_DIR = os.path.abspath(os.path.dirname(__file__))
